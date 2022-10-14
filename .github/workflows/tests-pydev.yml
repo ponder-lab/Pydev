@@ -1,7 +1,14 @@
 name: Tests - PyDev
 
-on: [push, pull_request]
-      
+on:
+  push:
+    branches:
+      - master
+      - pydev_9_3_1
+  pull_request:
+    branches:
+      - master
+      - pydev_9_3_1
 jobs:
   build:
     runs-on: ubuntu-latest
