@@ -39,10 +39,13 @@ public class TestDependent {
     public static String PYTHON2_DLLS = null;
     public static String PYTHON2_EXE = null;
     public static String PYTHON2_SITE_PACKAGES = null;
+    public static String PYTHON3_SITE_PACKAGES;
     public static String PYTHON2_LIB_DYNLOAD = null;
+    public static String PYTHON3_LIB_DYNLOAD;
 
     //Python (optional): related tests won't be run if not available
     public static String PYTHON38_QT5_PACKAGES = null;
+    public static String PYTHON3_DIST_PACKAGES;
 
     public static String PYTHON2_WXPYTHON_PACKAGES = null;
     public static String PYTHON2_NUMPY_PACKAGES = null;
