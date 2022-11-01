@@ -142,6 +142,7 @@
   <modules>
     <module>plugins</module>
     <module>features</module>
+    <module>org.python.pydev.updatesite</module>
   </modules>
   <build>
     <plugins>
@@ -155,6 +156,7 @@
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-surefire-plugin</artifactId>
         <version>${tycho-version}</version>
+
         <configuration>
           <explodedBundles>
             <!-- pysrc is in org.python.pydev, so explode it -->
@@ -176,7 +178,7 @@
             <explodedBundle>org.python.pydev.django</explodedBundle>
             <explodedBundle>org.python.pydev.help</explodedBundle>
             <explodedBundle>org.python.pydev.jython</explodedBundle>
-            <explodedBundle>org.python.pydev.mylyn</explodedBundle>
+            <!-- <explodedBundle>org.python.pydev.mylyn</explodedBundle> -->
             <explodedBundle>org.python.pydev.parser</explodedBundle>
             <explodedBundle>org.python.pydev.refactoring</explodedBundle>
             <explodedBundle>org.python.pydev.shared_core</explodedBundle>

@@ -38,12 +38,11 @@
     <module>org.python.pydev.django</module>
     <module>org.python.pydev.help</module>
     <module>org.python.pydev.jython</module>
-    <module>org.python.pydev.mylyn</module>
+    <!-- <module>org.python.pydev.mylyn</module> -->
     <module>org.python.pydev.parser</module>
     <module>org.python.pydev.refactoring</module>
     <module>org.python.pydev.shared_core</module>
     <module>org.python.pydev.shared_interactive_console</module>
     <module>org.python.pydev.shared_ui</module>
-    <module>org.python.pydev.updatesite</module>
   </modules>
 </project>

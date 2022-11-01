@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description url="http://pydev.org/">
+      PyDev
+   </description>
+   <feature url="features/org.python.pydev.feature_{version.full}.jar" id="org.python.pydev.feature" version="{version.full}">
+      <category name="updatesite"/>
+   </feature>
+   <category-def name="updatesite" label="Ponder&apos;s Custom Build"/>
+</site>
