@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature id="org.python.pydev.feature">
+   <description url="http://pydev.org/">
+      Ponder
+   </description>
+   <feature url="features/org.python.pydev.feature_0.0.0.qualifier.jar" id="org.python.pydev.feature" version="0.0.0">
       <category name="org.python.pydev.update"/>
    </feature>
-   <category-def name="org.python.pydev.update" label="Ponder&apos;s Pydev custom update site"/>
+   <feature url="features/org.python.pydev.feature.source_0.0.0.qualifier.jar" id="org.python.pydev.feature.source" version="0.0.0">
+      <category name="org.python.pydev.update"/>
+   </feature>
+   <category-def name="org.python.pydev.update" label="Ponder&apos;s Custom Build Updatesite"/>
 </site>
