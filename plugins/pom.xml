@@ -44,5 +44,6 @@
     <module>org.python.pydev.shared_core</module>
     <module>org.python.pydev.shared_interactive_console</module>
     <module>org.python.pydev.shared_ui</module>
+    <module>org.python.pydev.updatesite</module>
   </modules>
 </project>
