@@ -24,6 +24,7 @@
   </parent>
 
   <artifactId>org.python.pydev.updatesite</artifactId>
+  <packaging>eclipse-repository</packaging>
   <name>Pydev Custom Updatesite</name>
 
   <build>
