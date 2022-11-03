@@ -1,4 +1,4 @@
-name: Build with Mave
+name: Build with Maven
 
 on:
   push:
@@ -82,8 +82,8 @@ jobs:
         run: mvn install -DskipTests=true
         
       - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@9.3.1
-      with:
+        uses: JamesIves/github-pages-deploy-action@9.3.1
+        with:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: org.python.pydev.updatesite/target/repository # The folder the action should deploy.
