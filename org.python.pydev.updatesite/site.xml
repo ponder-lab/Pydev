@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <description name="PyDev Update Site" url="https://raw.githubusercontent.com/tatianacv/Pydev/pydev_9_3_1/org.python.pydev.updatesite">
+   <description name="PyDev Update Site" url="https://raw.githubusercontent.com/ponder-lab/Pydev/pydev_9_3_1/org.python.pydev.updatesite">
       Pydev Updatesite
    </description>
    <feature url="features/org.python.pydev.feature_9.3.0.202203051235.jar" id="org.python.pydev.feature" version="9.3.0.202203051235">
