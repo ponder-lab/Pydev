@@ -12,7 +12,7 @@
 
    <!-- <feature url="features/org.python.pydev.mylyn.feature_0.0.0.qualifier.jar" id="org.python.pydev.mylyn.feature" version="0.0.0"> -->
    <!--    <category name="PyDev Mylyn Integration"/> -->
-   <!-- </feature> -->   
+   <!-- </feature> --> 
    
    <category-def name="PyDev" label="PyDev">
       <description>PyDev</description>
