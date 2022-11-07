@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
    Copyright (C) 2013, Red Hat, Inc. and others
-
    All rights reserved. This program and the accompanying materials
    are made available under the terms of the Eclipse Public License v1.0
    which accompanies this distribution, and is available at
    http://www.eclipse.org/legal/epl-v10.html
-
    Contributors:
        Red Hat Incorporated - initial implementation
        Jonah Graham - add testing, signing and deployment
-
 =========== README ==========
-
   To run a PyDev build you need to:
     1) Download Java (e.g. OpenJDK 7 or OracleJDK7)
     2) Download Maven (http://maven.apache.org/download.html)
@@ -22,7 +18,6 @@
     2) Download Maven (http://maven.apache.org/download.html)
     3) Run "git apply test_with_tycho.patch" [1]
     4) Run "mvn install"
-
 	#Some general notes on maven config (windows-style)
 	The maven cache is a .m2 dir in the users dir (i.e.: C:\Users\Fabio\.m2)
 	#Make sure the PATH, JAVA_HOME, MAVEN_OPTS are properly set.
@@ -30,9 +25,6 @@
     set JAVA_HOME=D:\bin\jdk1.7.0_10
     SET MAVEN_OPTS=-Xmx1024m
 	#Check that we're in server mode (java -version should show server mode): D:\bin\jdk1.7.0_10\jre\lib\i386\jvm.cfg should have -server KNOWN as first line.
-
-
-
   To be able to fully and successfully test PyDev you need to:
   - create a TestDependent properties file here:
       org.python.pydev.core/tests/org.python.pydev.core/TestDependent.NAME.properties
@@ -46,7 +38,6 @@
     is done, set testFailureIgnore=false so the build fails on tests failing.)
   - If you want to use Tycho (as opposed to running tests within the Eclipse IDE) you
     need to apply test_with_tycho.patch, e.g. run "git apply test_with_tycho.patch" [1]
-
   Common optional steps:
     - Build without testing:
         "mvn install -DskipTests=true"
@@ -71,7 +62,6 @@
       and the HTML and XML will be in ./report.
       The ./report/TESTS-TestSuites.xml file generated can be imported into Eclipse's
       JUnit view.
-
    Less common things:
      - Sign the plugins:
        1) Create a keystore if you don't already have one:
@@ -87,29 +77,24 @@
           SIGN_STOREPASS=<store password entered above>
           SIGN_KEYPASS=<key password entered above>
        3) Run the build
-
      - Update all poms/manifests/feature with a new version number
        When -SNAPSHOT is used, in the manifests it is replaced with
        .qualifier
        1) Apply the test_with_tycho.patch
             git apply test_with_tycho.patch
-
        2) Run the new version command
             mvn -o tycho-versions:set-version -Dtycho.localArtifacts=ignore -DnewVersion=3.0.0-SNAPSHOT
                (-o can be used if all the dependencies are already in .m2 directory,
                 if not you need to run without the -o on the first run)
                 Then, manually change version on com.python.pydev.runalltests on pom.xml and MANIFEST.MF as they're not updated there
-
        3) Reverse the test_with_tycho.patch
             git apply -R test_with_tycho.patch
                (if this fails it means you need to manually recreate the patch
                 because it is no longer valid)
-
      - Sync pom and feature.xml version numbers to manifest ones.
           "mvn -o tycho-versions:update-pom -Dtycho.localArtifacts=ignore"
           (See the notes about setting versions above, e.g. you need to do this
            command with test_with_tycho.patch applied)
-
    [1] test_with_tycho.patch: We use a patch file to make the project testable with
    Tycho so that we can build and test it on Travis CI automatically. We don't want
    this patch applied all the time because we don't want the (approx 4MB) of test
@@ -119,7 +104,6 @@
    of the desire to keep tests as close to the source as possible. More information
    may be gleaned from, https://github.com/fabioz/Pydev/pull/76, a previous possible
    implementation that was rejected.
-
 -->
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -155,7 +139,6 @@
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-surefire-plugin</artifactId>
         <version>${tycho-version}</version>
-
         <configuration>
           <explodedBundles>
             <!-- pysrc is in org.python.pydev, so explode it -->
@@ -189,8 +172,7 @@
           <skipAfterFailureCount>1</skipAfterFailureCount>
           <!-- <testClass>org.python.pydev.ast.codecompletion.PythonCompletionWithBuiltinsTest</testClass> -->
           <excludes>
-            <exclude>**/Ironpython*Test.java</exclude>
-            <exclude>**/*Jython*Test.java</exclude>
+            <exclude>**/IronpythonTest.java</exclude>
             <exclude>**/Abstract*Test.java</exclude>
             <exclude>**/Abstract*TestCase.java</exclude>
             <exclude>**/*$*</exclude>
