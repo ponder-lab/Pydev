@@ -1,4 +1,4 @@
-name: Build with Maven
+name: Tests - PyDev
 
 on:
   push:
@@ -77,16 +77,16 @@ jobs:
         run: |
           sudo apt install libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-xinerama0 libxcb-xfixes0
           /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1920x1200x24 -ac +extension GLX
-
+        
       - name: Build with Maven
         run: mvn install -DskipTests=true
-        
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: org.python.pydev.updatesite/target/repository # The folder the action should deploy.
-          CLEAN: true # Automatically remove deleted files from the deploy branch
 
-      
+      - name: Add tests to plugin
+        run: python3 builders/org.python.pydev.build/add_tests_to_plugins.py
+        
+      - name: Test with Maven
+        env: 
+            # We set the PYDEV_TEST_PLATFORM to control which TestDependent we use (i.e. TestDependent.github.properties)
+            PYDEV_TEST_PLATFORM: github
+            DISPLAY: ":99.0"
+        run: mvn integration-test --batch-mode
