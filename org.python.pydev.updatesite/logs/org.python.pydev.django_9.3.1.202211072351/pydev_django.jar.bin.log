@@ -1,0 +1,49 @@
+# 11/7/22, 11:51:23 PM EST
+# Eclipse Compiler for Java(TM) v20220831-1439, 3.31.0, Copyright IBM Corp 2000, 2020. All rights reserved.
+----------
+1. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.django/src/org/python/pydev/django/debug/ui/actions/DjangoAction.java (at line 25)
+	import org.eclipse.debug.internal.ui.DebugUIPlugin;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'DebugUIPlugin' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.debug.ui_3.17.0.v20220817-1312.jar')
+----------
+2. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.django/src/org/python/pydev/django/debug/ui/actions/DjangoAction.java (at line 26)
+	import org.eclipse.debug.internal.ui.views.console.ProcessConsoleManager;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'ProcessConsoleManager' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.debug.ui_3.17.0.v20220817-1312.jar')
+----------
+3. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.django/src/org/python/pydev/django/debug/ui/actions/DjangoAction.java (at line 37)
+	import org.eclipse.ui.internal.ide.dialogs.OpenResourceDialog;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'OpenResourceDialog' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+4. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.django/src/org/python/pydev/django/debug/ui/actions/DjangoAction.java (at line 210)
+	OpenResourceDialog manageSelectionDialog = createManageSelectionDialog(message);
+	^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'OpenResourceDialog' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+5. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.django/src/org/python/pydev/django/debug/ui/actions/DjangoAction.java (at line 211)
+	if (manageSelectionDialog.open() == OpenResourceDialog.OK) {
+	                                    ^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'OpenResourceDialog' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+6. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.django/src/org/python/pydev/django/debug/ui/actions/DjangoAction.java (at line 235)
+	private OpenResourceDialog createManageSelectionDialog(String message) {
+	        ^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'OpenResourceDialog' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+7. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.django/src/org/python/pydev/django/debug/ui/actions/DjangoAction.java (at line 236)
+	OpenResourceDialog resourceDialog = new OpenResourceDialog(EditorUtils.getShell(), selectedProject,
+	^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'OpenResourceDialog' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+8. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.django/src/org/python/pydev/django/debug/ui/actions/DjangoAction.java (at line 236)
+	OpenResourceDialog resourceDialog = new OpenResourceDialog(EditorUtils.getShell(), selectedProject,
+	                                        ^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'OpenResourceDialog' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+9. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.django/src/org/python/pydev/django/debug/ui/actions/DjangoAction.java (at line 236)
+	OpenResourceDialog resourceDialog = new OpenResourceDialog(EditorUtils.getShell(), selectedProject,
+	                                        ^^^^^^^^^^^^^^^^^^
+Discouraged access: The constructor 'OpenResourceDialog(Shell, IContainer, int)' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+9 problems (9 warnings)

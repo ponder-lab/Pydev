@@ -1,0 +1,282 @@
+# 11/7/22, 11:51:11 PM EST
+# Eclipse Compiler for Java(TM) v20220831-1439, 3.31.0, Copyright IBM Corp 2000, 2020. All rights reserved.
+----------
+1. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/builder/PyDevBuilder.java (at line 62)
+	list.addAll(ExtensionHelper.getParticipants(ExtensionHelper.PYDEV_BUILDER));
+	            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The expression of type List needs unchecked conversion to conform to Collection<? extends PyDevBuilderVisitor>
+----------
+----------
+2. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/PyCodeCompletion.java (at line 176)
+	if (false) { //disabled for now.
+                    fillTokensWithJediCompletions(request, request.getPySelection(), request.nature, astManager,
+                            tokensList);
+                } else {
+	           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Dead code
+----------
+----------
+3. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/PyCodeCompletionUtils.java (at line 42)
+	int len = pythonAndTemplateProposals.size();
+	    ^^^
+The value of the local variable len is not used
+----------
+----------
+4. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/AbstractASTManager.java (at line 194)
+	List<IPyDevCompletionParticipant> participants = ExtensionHelper
+                            .getParticipants(ExtensionHelper.PYDEV_COMPLETION);
+	                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The expression of type List needs unchecked conversion to conform to List<IPyDevCompletionParticipant>
+----------
+5. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/AbstractASTManager.java (at line 1405)
+	List<IPyDevCompletionParticipant> participants = ExtensionHelper
+                                .getParticipants(ExtensionHelper.PYDEV_COMPLETION);
+	                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The expression of type List needs unchecked conversion to conform to List<IPyDevCompletionParticipant>
+----------
+6. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/AbstractASTManager.java (at line 1484)
+	FastStack scopeStack = definition2.scope.getScopeStack();
+	^^^^^^^^^
+FastStack is a raw type. References to generic type FastStack<E> should be parameterized
+----------
+7. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/AbstractASTManager.java (at line 2026)
+	int len = completionsForModule.size();
+	    ^^^
+The value of the local variable len is not used
+----------
+----------
+8. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/AbstractToken.java (at line 31)
+	public abstract class AbstractToken implements IToken {
+	                      ^^^^^^^^^^^^^
+The serializable class AbstractToken does not declare a static final serialVersionUID field of type long
+----------
+----------
+9. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 279)
+	Comparator c = ((SortedMap) map).comparator();
+	^^^^^^^^^^
+Comparator is a raw type. References to generic type Comparator<T> should be parameterized
+----------
+10. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 279)
+	Comparator c = ((SortedMap) map).comparator();
+	                 ^^^^^^^^^
+SortedMap is a raw type. References to generic type SortedMap<K,V> should be parameterized
+----------
+11. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 307)
+	K k = (K) key;
+	      ^^^^^^^
+Type safety: Unchecked cast from Object to K
+----------
+12. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 499)
+	clone = (PyPublicTreeMap<K, V>) super.clone();
+	        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked cast from Object to PyPublicTreeMap<K,V>
+----------
+13. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 652)
+	Map.Entry<K, V> entry = (Map.Entry<K, V>) o;
+	                        ^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked cast from Object to Map.Entry<K,V>
+----------
+14. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 662)
+	Map.Entry<K, V> entry = (Map.Entry<K, V>) o;
+	                        ^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked cast from Object to Map.Entry<K,V>
+----------
+15. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 860)
+	return inRange((K) key) && PyPublicTreeMap.this.containsKey(key);
+	               ^^^^^^^
+Type safety: Unchecked cast from Object to K
+----------
+16. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 865)
+	if (!inRange((K) key))
+	             ^^^^^^^
+Type safety: Unchecked cast from Object to K
+----------
+17. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 915)
+	Iterator i = iterator();
+	^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+18. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 933)
+	Map.Entry<K, V> entry = (Map.Entry<K, V>) o;
+	                        ^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked cast from Object to Map.Entry<K,V>
+----------
+19. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 945)
+	Map.Entry<K, V> entry = (Map.Entry<K, V>) o;
+	                        ^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked cast from Object to Map.Entry<K,V>
+----------
+20. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 1089)
+	return (comparator == null ? ((Comparable</*-*/K>) k1).compareTo(k2) : comparator.compare((K) k1, (K) k2));
+	                             ^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked cast from K to Comparable<K>
+----------
+21. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 1164)
+	Map.Entry e = (Map.Entry) o;
+	^^^^^^^^^
+Map.Entry is a raw type. References to generic type Map.Entry<K,V> should be parameterized
+----------
+22. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 1164)
+	Map.Entry e = (Map.Entry) o;
+	               ^^^^^^^^^
+Map.Entry is a raw type. References to generic type Map.Entry<K,V> should be parameterized
+----------
+23. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 1538)
+	public void buildFromSorted(int size, Iterator it, java.io.ObjectInputStream str, V defaultVal)
+	                                      ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+24. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 1558)
+	private final Entry<K, V> buildFromSorted(int level, int lo, int hi, int redLevel, Iterator it,
+	                                                                                   ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+25. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 1586)
+	Map.Entry<K, V> entry = (Map.Entry<K, V>) it.next();
+	                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked cast from Object to Map.Entry<K,V>
+----------
+26. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 1590)
+	key = (K) it.next();
+	      ^^^^^^^^^^^^^
+Type safety: Unchecked cast from Object to K
+----------
+27. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 1594)
+	key = (K) str.readObject();
+	      ^^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked cast from Object to K
+----------
+28. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/PyPublicTreeMap.java (at line 1595)
+	value = (defaultVal != null ? defaultVal : (V) str.readObject());
+	                                           ^^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked cast from Object to V
+----------
+----------
+29. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/modules/AbstractModule.java (at line 53)
+	private static final IToken[] EMPTY_TOKEN_ARRAY = new IToken[0];
+	                              ^^^^^^^^^^^^^^^^^
+The value of the field AbstractModule.EMPTY_TOKEN_ARRAY is not used
+----------
+----------
+30. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/modules/EmptyModule.java (at line 28)
+	private static final long serialVersionUID = 1L;
+	                          ^^^^^^^^^^^^^^^^
+The value of the field EmptyModule.serialVersionUID is not used
+----------
+----------
+31. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/modules/EmptyModuleForFolder.java (at line 9)
+	private static final long serialVersionUID = 1L;
+	                          ^^^^^^^^^^^^^^^^
+The value of the field EmptyModuleForFolder.serialVersionUID is not used
+----------
+----------
+32. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/modules/EmptyModuleForZip.java (at line 20)
+	private static final long serialVersionUID = 1L;
+	                          ^^^^^^^^^^^^^^^^
+The value of the field EmptyModuleForZip.serialVersionUID is not used
+----------
+----------
+33. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/modules/SourceModule.java (at line 842)
+	int len = localTokens.size();
+	    ^^^
+The value of the local variable len is not used
+----------
+----------
+34. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/codecompletion/revisited/visitors/StopVisitingException.java (at line 9)
+	public class StopVisitingException extends RuntimeException {
+	             ^^^^^^^^^^^^^^^^^^^^^
+The serializable class StopVisitingException does not declare a static final serialVersionUID field of type long
+----------
+----------
+35. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/cython/GenCythonAstImpl.java (at line 1275)
+	suiteType orelse = for1.orelse;
+	          ^^^^^^
+The value of the local variable orelse is not used
+----------
+36. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/cython/GenCythonAstImpl.java (at line 1821)
+	Num num = new Num(new Integer(0), Num.Int, "0");
+	                      ^^^^^^^^^^
+The constructor Integer(int) has been deprecated since version 9 and marked for removal
+----------
+----------
+37. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/formatter/PyFormatter.java (at line 32)
+	import org.python.pydev.parser.prettyprinterv2.IFormatter;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.parser.prettyprinterv2.IFormatter is never used
+----------
+----------
+38. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/refactoring/PyRefactoringFindDefinition.java (at line 18)
+	import org.python.pydev.ast.codecompletion.revisited.CompletionCache;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.ast.codecompletion.revisited.CompletionCache is never used
+----------
+----------
+39. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/ast/refactoring/TooManyMatchesException.java (at line 9)
+	public class TooManyMatchesException extends RuntimeException {
+	             ^^^^^^^^^^^^^^^^^^^^^^^
+The serializable class TooManyMatchesException does not declare a static final serialVersionUID field of type long
+----------
+----------
+40. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/plugin/PyStructureConfigHelpers.java (at line 24)
+	import org.python.pydev.core.IPythonNature;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.core.IPythonNature is never used
+----------
+----------
+41. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/plugin/nature/IPythonNatureListener.java (at line 15)
+	import org.python.pydev.core.IPythonPathNature;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.core.IPythonPathNature is never used
+----------
+----------
+42. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/plugin/nature/PythonNature.java (at line 27)
+	import org.eclipse.core.internal.resources.Project;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'Project' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.core.resources_3.18.0.v20220828-0546.jar')
+----------
+43. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/plugin/nature/PythonNature.java (at line 28)
+	import org.eclipse.core.internal.resources.ProjectInfo;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'ProjectInfo' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.core.resources_3.18.0.v20220828-0546.jar')
+----------
+44. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/plugin/nature/PythonNature.java (at line 150)
+	private long lastReport = 0;
+	             ^^^^^^^^^^
+The value of the field new JobProgressComunicator(){}.lastReport is not used
+----------
+45. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/plugin/nature/PythonNature.java (at line 809)
+	if (project instanceof Project) {
+	                       ^^^^^^^
+Discouraged access: The type 'Project' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.core.resources_3.18.0.v20220828-0546.jar')
+----------
+46. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/plugin/nature/PythonNature.java (at line 810)
+	Project p = (Project) project;
+	^^^^^^^
+Discouraged access: The type 'Project' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.core.resources_3.18.0.v20220828-0546.jar')
+----------
+47. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/plugin/nature/PythonNature.java (at line 810)
+	Project p = (Project) project;
+	             ^^^^^^^
+Discouraged access: The type 'Project' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.core.resources_3.18.0.v20220828-0546.jar')
+----------
+48. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/plugin/nature/PythonNature.java (at line 811)
+	ProjectInfo info = (ProjectInfo) p.getResourceInfo(false, false);
+	^^^^^^^^^^^
+Discouraged access: The type 'ProjectInfo' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.core.resources_3.18.0.v20220828-0546.jar')
+----------
+49. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/plugin/nature/PythonNature.java (at line 811)
+	ProjectInfo info = (ProjectInfo) p.getResourceInfo(false, false);
+	                    ^^^^^^^^^^^
+Discouraged access: The type 'ProjectInfo' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.core.resources_3.18.0.v20220828-0546.jar')
+----------
+50. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/plugin/nature/PythonNature.java (at line 811)
+	ProjectInfo info = (ProjectInfo) p.getResourceInfo(false, false);
+	                                   ^^^^^^^^^^^^^^^
+Discouraged access: The method 'Resource.getResourceInfo(boolean, boolean)' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.core.resources_3.18.0.v20220828-0546.jar')
+----------
+51. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.ast/src/org/python/pydev/plugin/nature/PythonNature.java (at line 812)
+	IProjectNature nature = info.getNature(PYTHON_NATURE_ID);
+	                             ^^^^^^^^^
+Discouraged access: The method 'ProjectInfo.getNature(String)' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.core.resources_3.18.0.v20220828-0546.jar')
+----------
+51 problems (51 warnings)

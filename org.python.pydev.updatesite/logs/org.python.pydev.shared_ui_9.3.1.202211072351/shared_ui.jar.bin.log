@@ -1,0 +1,195 @@
+# 11/7/22, 11:51:13 PM EST
+# Eclipse Compiler for Java(TM) v20220831-1439, 3.31.0, Copyright IBM Corp 2000, 2020. All rights reserved.
+----------
+1. INFO in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src/org/python/pydev/shared_ui/ConsoleColorCache.java (at line 46)
+	@SuppressWarnings("deprecation")
+	                  ^^^^^^^^^^^^^
+At least one of the problems in category 'deprecation' is not analysed due to a compiler option being ignored
+----------
+----------
+2. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src/org/python/pydev/shared_ui/SharedUiPlugin.java (at line 13)
+	import org.eclipse.e4.ui.css.swt.theme.IThemeEngine;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'IThemeEngine' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.e4.ui.css.swt.theme_0.13.100.v20220310-1056.jar')
+----------
+----------
+3. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src/org/python/pydev/shared_ui/dialogs/SelectElementDialog.java (at line 110)
+	return (T) dialog.getFirstResult();
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked cast from Object to T
+----------
+----------
+4. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src/org/python/pydev/shared_ui/editor/BaseEditor.java (at line 543)
+	Iterator e = getAnnotationPreferences().getAnnotationPreferences().iterator();
+	^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+5. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src/org/python/pydev/shared_ui/editor/BaseEditor.java (at line 559)
+	public Object getAdapter(Class adapter) {
+	       ^^^^^^
+Type safety: The return type Object for getAdapter(Class) from the type BaseEditor needs unchecked conversion to conform to T from the type TextEditor
+----------
+6. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src/org/python/pydev/shared_ui/editor/BaseEditor.java (at line 559)
+	public Object getAdapter(Class adapter) {
+	                         ^^^^^
+Class is a raw type. References to generic type Class<T> should be parameterized
+----------
+7. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src/org/python/pydev/shared_ui/editor/BaseEditor.java (at line 566)
+	return super.getAdapter(adapter);
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked invocation getAdapter(Class) of the generic method getAdapter(Class<T>) of type TextEditor
+----------
+8. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src/org/python/pydev/shared_ui/editor/BaseEditor.java (at line 566)
+	return super.getAdapter(adapter);
+	                        ^^^^^^^
+Type safety: The expression of type Class needs unchecked conversion to conform to Class<Object>
+----------
+----------
+9. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src/org/python/pydev/shared_ui/field_editors/JsonFieldEditor.java (at line 62)
+	private boolean oldState = true;
+	                ^^^^^^^^
+The value of the field JsonFieldEditor.oldState is not used
+----------
+----------
+10. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src/org/python/pydev/shared_ui/outline/ContentOutlinePageWithFilter.java (at line 38)
+	private ListenerList selectionChangedListeners = new ListenerList();
+	        ^^^^^^^^^^^^
+ListenerList is a raw type. References to generic type ListenerList<E> should be parameterized
+----------
+11. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src/org/python/pydev/shared_ui/outline/ContentOutlinePageWithFilter.java (at line 38)
+	private ListenerList selectionChangedListeners = new ListenerList();
+	                                                     ^^^^^^^^^^^^
+ListenerList is a raw type. References to generic type ListenerList<E> should be parameterized
+----------
+12. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src/org/python/pydev/shared_ui/outline/ContentOutlinePageWithFilter.java (at line 62)
+	selectionChangedListeners.add(listener);
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The method add(Object) belongs to the raw type ListenerList. References to generic type ListenerList<E> should be parameterized
+----------
+----------
+13. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_overview_ruler/org/python/pydev/overview_ruler/CopiedOverviewRuler.java (at line 344)
+	private static final boolean IS_MAC = Util.isMac();
+	                             ^^^^^^
+The value of the field CopiedOverviewRuler.IS_MAC is not used
+----------
+----------
+14. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/AbstractSearchIndexPage.java (at line 395)
+	private IDocument getDocument(TextSelection tx) {
+	                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The method getDocument(TextSelection) from the type AbstractSearchIndexPage is never used locally
+----------
+----------
+15. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/SearchIndexLabelProvider.java (at line 26)
+	import org.eclipse.search.internal.ui.SearchPluginImages;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'SearchPluginImages' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.search_3.14.200.v20220817-1340.jar')
+----------
+16. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/SearchIndexLabelProvider.java (at line 47)
+	private final Comparator fMatchComparator;
+	              ^^^^^^^^^^
+Comparator is a raw type. References to generic type Comparator<T> should be parameterized
+----------
+17. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/SearchIndexLabelProvider.java (at line 54)
+	fLineMatchImage = SearchPluginImages.get(SearchPluginImages.IMG_OBJ_TEXT_SEARCH_LINE);
+	                  ^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'SearchPluginImages' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.search_3.14.200.v20220817-1340.jar')
+----------
+18. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/SearchIndexLabelProvider.java (at line 54)
+	fLineMatchImage = SearchPluginImages.get(SearchPluginImages.IMG_OBJ_TEXT_SEARCH_LINE);
+	                                     ^^^
+Discouraged access: The method 'SearchPluginImages.get(String)' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.search_3.14.200.v20220817-1340.jar')
+----------
+19. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/SearchIndexLabelProvider.java (at line 54)
+	fLineMatchImage = SearchPluginImages.get(SearchPluginImages.IMG_OBJ_TEXT_SEARCH_LINE);
+	                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'SearchPluginImages' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.search_3.14.200.v20220817-1340.jar')
+----------
+20. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/SearchIndexLabelProvider.java (at line 54)
+	fLineMatchImage = SearchPluginImages.get(SearchPluginImages.IMG_OBJ_TEXT_SEARCH_LINE);
+	                                                            ^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The field 'SearchPluginImages.IMG_OBJ_TEXT_SEARCH_LINE' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.search_3.14.200.v20220817-1340.jar')
+----------
+21. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/SearchIndexLabelProvider.java (at line 55)
+	fMatchComparator = new Comparator() {
+	                       ^^^^^^^^^^
+Comparator is a raw type. References to generic type Comparator<T> should be parameterized
+----------
+22. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/SearchIndexLabelProvider.java (at line 115)
+	Arrays.sort(matches, fMatchComparator);
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked invocation sort(Match[], Comparator) of the generic method sort(T[], Comparator<? super T>) of type Arrays
+----------
+23. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/SearchIndexLabelProvider.java (at line 115)
+	Arrays.sort(matches, fMatchComparator);
+	                     ^^^^^^^^^^^^^^^^
+Type safety: The expression of type Comparator needs unchecked conversion to conform to Comparator<? super Match>
+----------
+24. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/SearchIndexLabelProvider.java (at line 232)
+	TreeNode treeNode = (TreeNode) element;
+	^^^^^^^^
+TreeNode is a raw type. References to generic type TreeNode<T> should be parameterized
+----------
+25. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/SearchIndexLabelProvider.java (at line 232)
+	TreeNode treeNode = (TreeNode) element;
+	                     ^^^^^^^^
+TreeNode is a raw type. References to generic type TreeNode<T> should be parameterized
+----------
+----------
+26. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/SearchIndexResult.java (at line 18)
+	import org.eclipse.search.internal.ui.SearchPluginImages;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'SearchPluginImages' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.search_3.14.200.v20220817-1340.jar')
+----------
+27. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/SearchIndexResult.java (at line 54)
+	return SearchPluginImages.DESC_OBJ_TSEARCH_DPDN;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'SearchPluginImages' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.search_3.14.200.v20220817-1340.jar')
+----------
+28. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/SearchIndexResult.java (at line 54)
+	return SearchPluginImages.DESC_OBJ_TSEARCH_DPDN;
+	                          ^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The field 'SearchPluginImages.DESC_OBJ_TSEARCH_DPDN' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.search_3.14.200.v20220817-1340.jar')
+----------
+----------
+29. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/replace/PatternConstructor.java (at line 12)
+	import org.eclipse.jface.text.FindReplaceDocumentAdapter;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.jface.text.FindReplaceDocumentAdapter is never used
+----------
+----------
+30. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/replace/ReplaceRefactoring.java (at line 46)
+	import org.eclipse.search2.internal.ui.InternalSearchUI;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'InternalSearchUI' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.search_3.14.200.v20220817-1340.jar')
+----------
+31. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/replace/ReplaceRefactoring.java (at line 47)
+	import org.eclipse.search2.internal.ui.text.PositionTracker;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'PositionTracker' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.search_3.14.200.v20220817-1340.jar')
+----------
+32. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/replace/ReplaceRefactoring.java (at line 341)
+	PositionTracker tracker = InternalSearchUI.getInstance().getPositionTracker();
+	^^^^^^^^^^^^^^^
+Discouraged access: The type 'PositionTracker' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.search_3.14.200.v20220817-1340.jar')
+----------
+33. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/replace/ReplaceRefactoring.java (at line 341)
+	PositionTracker tracker = InternalSearchUI.getInstance().getPositionTracker();
+	                          ^^^^^^^^^^^^^^^^
+Discouraged access: The type 'InternalSearchUI' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.search_3.14.200.v20220817-1340.jar')
+----------
+34. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/replace/ReplaceRefactoring.java (at line 341)
+	PositionTracker tracker = InternalSearchUI.getInstance().getPositionTracker();
+	                                           ^^^^^^^^^^^
+Discouraged access: The method 'InternalSearchUI.getInstance()' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.search_3.14.200.v20220817-1340.jar')
+----------
+35. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/replace/ReplaceRefactoring.java (at line 341)
+	PositionTracker tracker = InternalSearchUI.getInstance().getPositionTracker();
+	                                                         ^^^^^^^^^^^^^^^^^^
+Discouraged access: The method 'InternalSearchUI.getPositionTracker()' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.search_3.14.200.v20220817-1340.jar')
+----------
+36. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev.shared_ui/src_search/org/python/pydev/shared_ui/search/replace/ReplaceRefactoring.java (at line 364)
+	Position currentPosition = tracker.getCurrentPosition(match);
+	                                   ^^^^^^^^^^^^^^^^^^
+Discouraged access: The method 'PositionTracker.getCurrentPosition(Match)' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.search_3.14.200.v20220817-1340.jar')
+----------
+36 problems (0 errors, 35 warnings, 1 info)

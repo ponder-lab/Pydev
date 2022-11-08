@@ -1,0 +1,1127 @@
+# 11/7/22, 11:51:15 PM EST
+# Eclipse Compiler for Java(TM) v20220831-1439, 3.31.0, Copyright IBM Corp 2000, 2020. All rights reserved.
+----------
+1. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/analysis/additionalinfo/InfoFactory.java (at line 27)
+	@SuppressWarnings("restriction")
+	                  ^^^^^^^^^^^^^
+Unnecessary @SuppressWarnings("restriction")
+----------
+----------
+2. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/analysis/builder/AnalysisParserObserver.java (at line 115)
+	Tuple t = (Tuple) info.argsToReparse[0];
+	^^^^^
+Tuple is a raw type. References to generic type Tuple<X,Y> should be parameterized
+----------
+3. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/analysis/builder/AnalysisParserObserver.java (at line 115)
+	Tuple t = (Tuple) info.argsToReparse[0];
+	           ^^^^^
+Tuple is a raw type. References to generic type Tuple<X,Y> should be parameterized
+----------
+----------
+4. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/analysis/ctrl_1/UndefinedVariableFixParticipant.java (at line 17)
+	import org.eclipse.ui.texteditor.MarkerAnnotation;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.ui.texteditor.MarkerAnnotation is never used
+----------
+----------
+5. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 163)
+	DataAndImageTreeNode root = new DataAndImageTreeNode(null, null, null);
+	^^^^^^^^^^^^^^^^^^^^
+DataAndImageTreeNode is a raw type. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+6. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 163)
+	DataAndImageTreeNode root = new DataAndImageTreeNode(null, null, null);
+	                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The constructor DataAndImageTreeNode(DataAndImageTreeNode, Object, IImageHandle) belongs to the raw type DataAndImageTreeNode. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+7. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 163)
+	DataAndImageTreeNode root = new DataAndImageTreeNode(null, null, null);
+	                                ^^^^^^^^^^^^^^^^^^^^
+DataAndImageTreeNode is a raw type. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+8. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 164)
+	DataAndImageTreeNode item = new DataAndImageTreeNode(root, model, classImage);
+	^^^^^^^^^^^^^^^^^^^^
+DataAndImageTreeNode is a raw type. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+9. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 164)
+	DataAndImageTreeNode item = new DataAndImageTreeNode(root, model, classImage);
+	                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The constructor DataAndImageTreeNode(DataAndImageTreeNode, Object, IImageHandle) belongs to the raw type DataAndImageTreeNode. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+10. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 164)
+	DataAndImageTreeNode item = new DataAndImageTreeNode(root, model, classImage);
+	                                ^^^^^^^^^^^^^^^^^^^^
+DataAndImageTreeNode is a raw type. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+11. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 166)
+	DataAndImageTreeNode base = item;
+	^^^^^^^^^^^^^^^^^^^^
+DataAndImageTreeNode is a raw type. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+12. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 173)
+	DataAndImageTreeNode parents = new DataAndImageTreeNode(root, "Parents", parentsImage);
+	^^^^^^^^^^^^^^^^^^^^
+DataAndImageTreeNode is a raw type. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+13. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 173)
+	DataAndImageTreeNode parents = new DataAndImageTreeNode(root, "Parents", parentsImage);
+	                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The constructor DataAndImageTreeNode(DataAndImageTreeNode, Object, IImageHandle) belongs to the raw type DataAndImageTreeNode. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+14. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 173)
+	DataAndImageTreeNode parents = new DataAndImageTreeNode(root, "Parents", parentsImage);
+	                                   ^^^^^^^^^^^^^^^^^^^^
+DataAndImageTreeNode is a raw type. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+15. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 181)
+	private void recursivelyAdd(HierarchyNodeModel model, DataAndImageTreeNode base, boolean addChildren,
+	                                                      ^^^^^^^^^^^^^^^^^^^^
+DataAndImageTreeNode is a raw type. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+16. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 187)
+	new DataAndImageTreeNode(base, modelNode.name + " already added.", classImage);
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The constructor DataAndImageTreeNode(DataAndImageTreeNode, Object, IImageHandle) belongs to the raw type DataAndImageTreeNode. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+17. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 187)
+	new DataAndImageTreeNode(base, modelNode.name + " already added.", classImage);
+	    ^^^^^^^^^^^^^^^^^^^^
+DataAndImageTreeNode is a raw type. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+18. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 191)
+	DataAndImageTreeNode item = new DataAndImageTreeNode(base, modelNode, classImage);
+	^^^^^^^^^^^^^^^^^^^^
+DataAndImageTreeNode is a raw type. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+19. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 191)
+	DataAndImageTreeNode item = new DataAndImageTreeNode(base, modelNode, classImage);
+	                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The constructor DataAndImageTreeNode(DataAndImageTreeNode, Object, IImageHandle) belongs to the raw type DataAndImageTreeNode. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+20. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 191)
+	DataAndImageTreeNode item = new DataAndImageTreeNode(base, modelNode, classImage);
+	                                ^^^^^^^^^^^^^^^^^^^^
+DataAndImageTreeNode is a raw type. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+21. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 299)
+	DataAndImageTreeNode treeNode = (DataAndImageTreeNode) firstElement;
+	^^^^^^^^^^^^^^^^^^^^
+DataAndImageTreeNode is a raw type. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+22. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/com/python/pydev/ui/hierarchy/HierarchyViewer.java (at line 299)
+	DataAndImageTreeNode treeNode = (DataAndImageTreeNode) firstElement;
+	                                 ^^^^^^^^^^^^^^^^^^^^
+DataAndImageTreeNode is a raw type. References to generic type DataAndImageTreeNode<X> should be parameterized
+----------
+----------
+23. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/builder/syntaxchecker/ClearSyntaxMarkersPyeditListener.java (at line 24)
+	import org.python.pydev.shared_ui.log.ToLogFile;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.shared_ui.log.ToLogFile is never used
+----------
+----------
+24. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/builder/syntaxchecker/PySyntaxChecker.java (at line 22)
+	import org.python.pydev.shared_ui.log.ToLogFile;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.shared_ui.log.ToLogFile is never used
+----------
+----------
+25. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/compare/PyMergeViewer.java (at line 144)
+	IWorkbenchPartSite site = null;
+	                   ^^^^
+The value of the local variable site is not used
+----------
+26. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/compare/PyMergeViewer.java (at line 193)
+	public Object getAdapter(Class adapter) {
+	                         ^^^^^
+Class is a raw type. References to generic type Class<T> should be parameterized
+----------
+27. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/compare/PyMergeViewer.java (at line 293)
+	public Object getAdapter(Class adapter) {
+	                         ^^^^^
+Class is a raw type. References to generic type Class<T> should be parameterized
+----------
+----------
+28. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/ICodeScannerKeywords.java (at line 17)
+	CallbackWithListeners getOnChangeCallbackWithListeners();
+	^^^^^^^^^^^^^^^^^^^^^
+CallbackWithListeners is a raw type. References to generic type CallbackWithListeners<X> should be parameterized
+----------
+----------
+29. INFO in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/KeyAssistDialog.java (at line 82)
+	@SuppressWarnings("deprecation")
+	                  ^^^^^^^^^^^^^
+At least one of the problems in category 'deprecation' is not analysed due to a compiler option being ignored
+----------
+30. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/KeyAssistDialog.java (at line 279)
+	final Iterator itemsItr = keybindingToActionInfo.entrySet().iterator();
+	      ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+31. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/KeyAssistDialog.java (at line 281)
+	final Map.Entry entry = (Entry) itemsItr.next();
+	      ^^^^^^^^^
+Map.Entry is a raw type. References to generic type Map.Entry<K,V> should be parameterized
+----------
+32. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/KeyAssistDialog.java (at line 281)
+	final Map.Entry entry = (Entry) itemsItr.next();
+	                         ^^^^^
+Map.Entry is a raw type. References to generic type Map.Entry<K,V> should be parameterized
+----------
+----------
+33. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/PyDoubleClickStrategy.java (at line 27)
+	private String contentType;
+	               ^^^^^^^^^^^
+The value of the field PyDoubleClickStrategy.contentType is not used
+----------
+----------
+34. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/PyEdit.java (at line 322)
+	private CodeFoldingSetter codeFoldingSetter;
+	                          ^^^^^^^^^^^^^^^^^
+The value of the field PyEdit.codeFoldingSetter is not used
+----------
+----------
+35. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/PyWordRule.java (at line 19)
+	import org.python.pydev.shared_core.partitioner.IWordDetector;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.shared_core.partitioner.IWordDetector is never used
+----------
+----------
+36. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/actions/PyOpenLastConsoleHyperlink.java (at line 17)
+	import org.eclipse.ui.internal.console.ConsoleHyperlinkPosition;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'ConsoleHyperlinkPosition' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.console_3.11.300.v20220811-1921.jar')
+----------
+----------
+37. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/actions/codefolding/PyCollapse.java (at line 46)
+	Iterator iter = model.getAnnotationIterator();
+	^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+----------
+38. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/actions/codefolding/PyCollapseAll.java (at line 38)
+	Iterator iter = getAnnotationsIterator(model, false);
+	^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+----------
+39. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/actions/codefolding/PyFoldingAction.java (at line 48)
+	Collections.sort(expanded, new Comparator() {
+
+                @Override
+                public int compare(Object o1, Object o2) {
+                    PyProjectionAnnotation e1 = (PyProjectionAnnotation) o1;
+                    PyProjectionAnnotation e2 = (PyProjectionAnnotation) o2;
+                    int e1Off = model.getPosition(e1).getOffset();
+                    int e2Off = model.getPosition(e2).getOffset();
+                    if (e1Off < e2Off) {
+                        return -1;
+                    }
+                    if (e1Off > e2Off) {
+                        return 1;
+                    }
+                    return 0;
+                }
+            });
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked invocation sort(ArrayList<Annotation>, new Comparator(){}) of the generic method sort(List<T>, Comparator<? super T>) of type Collections
+----------
+40. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/actions/codefolding/PyFoldingAction.java (at line 48)
+	Collections.sort(expanded, new Comparator() {
+
+                @Override
+                public int compare(Object o1, Object o2) {
+                    PyProjectionAnnotation e1 = (PyProjectionAnnotation) o1;
+                    PyProjectionAnnotation e2 = (PyProjectionAnnotation) o2;
+                    int e1Off = model.getPosition(e1).getOffset();
+                    int e2Off = model.getPosition(e2).getOffset();
+                    if (e1Off < e2Off) {
+                        return -1;
+                    }
+                    if (e1Off > e2Off) {
+                        return 1;
+                    }
+                    return 0;
+                }
+            });
+	                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The expression of type new Comparator(){} needs unchecked conversion to conform to Comparator<? super Annotation>
+----------
+41. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/actions/codefolding/PyFoldingAction.java (at line 48)
+	Collections.sort(expanded, new Comparator() {
+	                               ^^^^^^^^^^
+Comparator is a raw type. References to generic type Comparator<T> should be parameterized
+----------
+42. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/actions/codefolding/PyFoldingAction.java (at line 86)
+	protected boolean isInsideLast(PyProjectionAnnotation element, List elements, ProjectionAnnotationModel model) {
+	                                                               ^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+43. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/actions/codefolding/PyFoldingAction.java (at line 111)
+	protected boolean isInside(Position position, List elements) {
+	                                              ^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+44. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/actions/codefolding/PyFoldingAction.java (at line 112)
+	for (Iterator iter = elements.iterator(); iter.hasNext();) {
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+----------
+45. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/actions/organize_imports/ImportArranger.java (at line 501)
+	linesToDelete.add(new Tuple(j, PySelection.getLine(doc, j)));
+	                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The constructor Tuple(Object, Object) belongs to the raw type Tuple. References to generic type Tuple<X,Y> should be parameterized
+----------
+46. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/actions/organize_imports/ImportArranger.java (at line 501)
+	linesToDelete.add(new Tuple(j, PySelection.getLine(doc, j)));
+	                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The expression of type Tuple needs unchecked conversion to conform to Tuple<Integer,String>
+----------
+47. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/actions/organize_imports/ImportArranger.java (at line 501)
+	linesToDelete.add(new Tuple(j, PySelection.getLine(doc, j)));
+	                      ^^^^^
+Tuple is a raw type. References to generic type Tuple<X,Y> should be parameterized
+----------
+----------
+48. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/codecompletion/JavaElementToken.java (at line 36)
+	public class JavaElementToken extends CompiledToken {
+	             ^^^^^^^^^^^^^^^^
+The serializable class JavaElementToken does not declare a static final serialVersionUID field of type long
+----------
+----------
+49. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/codecompletion/proposals/PyCompletionProposal.java (at line 19)
+	import org.python.pydev.shared_core.code_completion.IPyCompletionProposal.ICompareContext;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.shared_core.code_completion.IPyCompletionProposal.ICompareContext is never used
+----------
+----------
+50. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/codecompletion/revisited/javaintegration/AbstractJavaClassModule.java (at line 18)
+	import org.eclipse.jdt.core.JavaModelException;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.jdt.core.JavaModelException is never used
+----------
+51. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/codecompletion/revisited/javaintegration/AbstractJavaClassModule.java (at line 19)
+	import org.eclipse.jdt.internal.ui.JavaPlugin;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'JavaPlugin' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.jdt.ui_3.27.0.v20220824-0714.jar')
+----------
+52. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/codecompletion/revisited/javaintegration/AbstractJavaClassModule.java (at line 20)
+	import org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'AbstractJavaCompletionProposal' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.jdt.ui_3.27.0.v20220824-0714.jar')
+----------
+----------
+53. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/codecompletion/revisited/javaintegration/ModulesKeyForJava.java (at line 20)
+	public class ModulesKeyForJava extends ModulesKey implements IModulesKeyForJava {
+	             ^^^^^^^^^^^^^^^^^
+The serializable class ModulesKeyForJava does not declare a static final serialVersionUID field of type long
+----------
+54. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/codecompletion/revisited/javaintegration/ModulesKeyForJava.java (at line 22)
+	private IPackageFragmentRoot packageRoot;
+	                             ^^^^^^^^^^^
+The value of the field ModulesKeyForJava.packageRoot is not used
+----------
+55. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/codecompletion/revisited/javaintegration/ModulesKeyForJava.java (at line 23)
+	private IJavaElement javaElement;
+	                     ^^^^^^^^^^^
+The value of the field ModulesKeyForJava.javaElement is not used
+----------
+----------
+56. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/codefolding/CodeFoldingSetter.java (at line 448)
+	Class... elementClasses) {
+	^^^^^
+Class is a raw type. References to generic type Class<T> should be parameterized
+----------
+----------
+57. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/codefolding/PyEditProjection.java (at line 112)
+	public Object getAdapter(Class required) {
+	                         ^^^^^
+Class is a raw type. References to generic type Class<T> should be parameterized
+----------
+58. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/codefolding/PyEditProjection.java (at line 114)
+	Object adapter = fProjectionSupport.getAdapter(getSourceViewer(), required);
+	                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked invocation getAdapter(ISourceViewer, Class) of the generic method getAdapter(ISourceViewer, Class<T>) of type ProjectionSupport
+----------
+59. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/codefolding/PyEditProjection.java (at line 114)
+	Object adapter = fProjectionSupport.getAdapter(getSourceViewer(), required);
+	                                                                  ^^^^^^^^
+Type safety: The expression of type Class needs unchecked conversion to conform to Class<Object>
+----------
+----------
+60. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/codefolding/PySourceViewer.java (at line 61)
+	private boolean isInToggleCompletionStyle;
+	                ^^^^^^^^^^^^^^^^^^^^^^^^^
+The value of the field PySourceViewer.isInToggleCompletionStyle is not used
+----------
+61. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/codefolding/PySourceViewer.java (at line 135)
+	final Iterator annotationIterator = annotationModel.getAnnotationIterator();
+	      ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+----------
+62. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/commentblocks/CommentBlocksPreferences.java (at line 41)
+	private Label labelSep1;
+	              ^^^^^^^^^
+The value of the field CommentBlocksPreferences.labelSep1 is not used
+----------
+----------
+63. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/correctionassist/PythonCorrectionProcessor.java (at line 27)
+	import org.eclipse.ui.internal.texteditor.spelling.NoCompletionsProposal;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'NoCompletionsProposal' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.workbench.texteditor_3.16.600.v20220809-1658.jar')
+----------
+64. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/correctionassist/PythonCorrectionProcessor.java (at line 177)
+	assists.addAll(ExtensionHelper.getParticipants(ExtensionHelper.PYDEV_CTRL_1));
+	               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The expression of type List needs unchecked conversion to conform to Collection<? extends IAssistProps>
+----------
+65. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/correctionassist/PythonCorrectionProcessor.java (at line 229)
+	if (spellProps == null || (spellProps.length == 1 && spellProps[0] instanceof NoCompletionsProposal)) {
+	                                                                              ^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'NoCompletionsProposal' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.workbench.texteditor_3.16.600.v20220809-1658.jar')
+----------
+----------
+66. INFO in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/hover/AbstractPyEditorTextHover.java (at line 93)
+	@SuppressWarnings("deprecation")
+	                  ^^^^^^^^^^^^^
+At least one of the problems in category 'deprecation' is not analysed due to a compiler option being ignored
+----------
+----------
+67. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/hover/PyEditorHoverConfigurationBlock.java (at line 361)
+	private GridData fDisabledLabelGridData;
+	                 ^^^^^^^^^^^^^^^^^^^^^^
+The value of the field PyEditorHoverConfigurationBlock.fDisabledLabelGridData is not used
+----------
+68. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/hover/PyEditorHoverConfigurationBlock.java (at line 929)
+	Integer stateMask = new Integer(fHoverDescs[i].fStateMask);
+	                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The constructor Integer(int) has been deprecated since version 9 and marked for removal
+----------
+----------
+69. INFO in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/hover/PyEditorTextHoverProxy.java (at line 55)
+	@SuppressWarnings("deprecation")
+	                  ^^^^^^^^^^^^^
+At least one of the problems in category 'deprecation' is not analysed due to a compiler option being ignored
+----------
+----------
+70. INFO in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/editor/hover/PydevCombiningHover.java (at line 140)
+	@SuppressWarnings("deprecation")
+	                  ^^^^^^^^^^^^^
+At least one of the problems in category 'deprecation' is not analysed due to a compiler option being ignored
+----------
+----------
+71. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/logging/PyLoggingPreferencesPage.java (at line 24)
+	import org.python.pydev.shared_ui.log.ToLogFile;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.shared_ui.log.ToLogFile is never used
+----------
+----------
+72. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/outline/OutlineHideNonPublicMembersAction.java (at line 42)
+	if (item == null) {
+                        return true;
+                    }
+	                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Dead code
+----------
+----------
+73. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/plugin/PydevPlugin.java (at line 30)
+	import org.eclipse.jdt.internal.launching.StandardVMType;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'StandardVMType' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.jdt.launching_3.19.700.v20220730-1850.jar')
+----------
+----------
+74. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/plugin/preferences/AbstractPydevPrefs.java (at line 255)
+	Iterator e = fCheckBoxes.keySet().iterator();
+	^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+----------
+75. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/plugin/preferences/CheckDefaultPreferencesDialog.java (at line 31)
+	private Button okButton;
+	               ^^^^^^^^
+The value of the field CheckDefaultPreferencesDialog.okButton is not used
+----------
+76. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/plugin/preferences/CheckDefaultPreferencesDialog.java (at line 32)
+	private Button cancelButton;
+	               ^^^^^^^^^^^^
+The value of the field CheckDefaultPreferencesDialog.cancelButton is not used
+----------
+----------
+77. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/process_window/SimpleTerminalEmulator.java (at line 19)
+	private int cursor = 0;
+	            ^^^^^^
+The value of the field SimpleTerminalEmulator.cursor is not used
+----------
+----------
+78. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/MenuManagerCopiedToAddCreateMenuWithMenuParent.java (at line 68)
+	private ListenerList listeners = new ListenerList();
+	        ^^^^^^^^^^^^
+ListenerList is a raw type. References to generic type ListenerList<E> should be parameterized
+----------
+79. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/MenuManagerCopiedToAddCreateMenuWithMenuParent.java (at line 68)
+	private ListenerList listeners = new ListenerList();
+	                                     ^^^^^^^^^^^^
+ListenerList is a raw type. References to generic type ListenerList<E> should be parameterized
+----------
+80. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/MenuManagerCopiedToAddCreateMenuWithMenuParent.java (at line 177)
+	listeners.add(listener);
+	^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The method add(Object) belongs to the raw type ListenerList. References to generic type ListenerList<E> should be parameterized
+----------
+----------
+81. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/dialogs/ListContentProvider.java (at line 13)
+	List list = (List) element;
+	^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+82. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/dialogs/ListContentProvider.java (at line 13)
+	List list = (List) element;
+	             ^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+83. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/dialogs/ListContentProvider.java (at line 26)
+	return element instanceof List && ((List) element).size() > 0;
+	                                    ^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+----------
+84. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/dialogs/Select1Dialog.java (at line 151)
+	return (TreeNode<Object>) result[0];
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked cast from Object to TreeNode<Object>
+----------
+----------
+85. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/dialogs/SelectExistingOrCreateNewDialog.java (at line 276)
+	List list = selection.toList();
+	^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+86. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/dialogs/SelectExistingOrCreateNewDialog.java (at line 287)
+	list = new ArrayList();
+	           ^^^^^^^^^
+ArrayList is a raw type. References to generic type ArrayList<E> should be parameterized
+----------
+87. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/dialogs/SelectExistingOrCreateNewDialog.java (at line 300)
+	list = new ArrayList();
+	           ^^^^^^^^^
+ArrayList is a raw type. References to generic type ArrayList<E> should be parameterized
+----------
+88. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/dialogs/SelectExistingOrCreateNewDialog.java (at line 438)
+	this.input = (List<String>) input;
+	             ^^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked cast from Object to List<String>
+----------
+89. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/dialogs/SelectExistingOrCreateNewDialog.java (at line 462)
+	List<String> list = selection.toList();
+	                    ^^^^^^^^^^^^^^^^^^
+Type safety: The expression of type List needs unchecked conversion to conform to List<String>
+----------
+----------
+90. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/AbstractInterpreterEditor.java (at line 517)
+	addAPIBt = interpreterEditor.createBt(box, "Add from QScintilla api file", this);//$NON-NLS-1$
+	           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The static method createBt(Composite, String, SelectionListener) from the type AbstractInterpreterEditor should be accessed in a static way
+----------
+----------
+91. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/AbstractListWithNewRemoveControl.java (at line 136)
+	addBt = interpreterEditor.createBt(box, "ListEditor.add", this);//$NON-NLS-1$
+	        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The static method createBt(Composite, String, SelectionListener) from the type AbstractInterpreterEditor should be accessed in a static way
+----------
+92. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/AbstractListWithNewRemoveControl.java (at line 137)
+	removeBt = interpreterEditor.createBt(box, "ListEditor.remove", this);//$NON-NLS-1$
+	           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The static method createBt(Composite, String, SelectionListener) from the type AbstractInterpreterEditor should be accessed in a static way
+----------
+----------
+93. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/AlreadyInstalledInterpreterProvider.java (at line 15)
+	import org.python.pydev.ast.interpreter_managers.IInterpreterProviderFactory;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.ast.interpreter_managers.IInterpreterProviderFactory is never used
+----------
+----------
+94. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 76)
+	public void addModes(Set modes) {
+	                     ^^^
+Set is a raw type. References to generic type Set<E> should be parameterized
+----------
+95. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 115)
+	public void removeModes(Set modes) {
+	                        ^^^
+Set is a raw type. References to generic type Set<E> should be parameterized
+----------
+96. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 180)
+	public void setAttributes(Map attributes) {
+	                          ^^^
+Map is a raw type. References to generic type Map<K,V> should be parameterized
+----------
+97. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 185)
+	Set<Map.Entry> entrySet = attributes.entrySet();
+	    ^^^^^^^^^
+Map.Entry is a raw type. References to generic type Map.Entry<K,V> should be parameterized
+----------
+98. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 186)
+	for (Map.Entry entry : entrySet) {
+	     ^^^^^^^^^
+Map.Entry is a raw type. References to generic type Map.Entry<K,V> should be parameterized
+----------
+99. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 206)
+	public void setModes(Set modes) {
+	                     ^^^
+Set is a raw type. References to generic type Set<E> should be parameterized
+----------
+100. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 212)
+	public void setPreferredLaunchDelegate(Set modes, String delegateId) {
+	                                       ^^^
+Set is a raw type. References to generic type Set<E> should be parameterized
+----------
+101. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 260)
+	public List getAttribute(String attributeName, List defaultValue) throws CoreException {
+	       ^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+102. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 260)
+	public List getAttribute(String attributeName, List defaultValue) throws CoreException {
+	                                               ^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+103. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 263)
+	return (List) this.attributes.get(attributeName);
+	        ^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+104. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 270)
+	public Set getAttribute(String attributeName, Set defaultValue) throws CoreException {
+	       ^^^
+Set is a raw type. References to generic type Set<E> should be parameterized
+----------
+105. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 270)
+	public Set getAttribute(String attributeName, Set defaultValue) throws CoreException {
+	                                              ^^^
+Set is a raw type. References to generic type Set<E> should be parameterized
+----------
+106. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 273)
+	return (Set) this.attributes.get(attributeName);
+	        ^^^
+Set is a raw type. References to generic type Set<E> should be parameterized
+----------
+107. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 280)
+	public Map getAttribute(String attributeName, Map defaultValue) throws CoreException {
+	       ^^^
+Map is a raw type. References to generic type Map<K,V> should be parameterized
+----------
+108. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 280)
+	public Map getAttribute(String attributeName, Map defaultValue) throws CoreException {
+	                                              ^^^
+Map is a raw type. References to generic type Map<K,V> should be parameterized
+----------
+109. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 282)
+	return (Map) this.attributes.get(attributeName);
+	        ^^^
+Map is a raw type. References to generic type Map<K,V> should be parameterized
+----------
+110. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 333)
+	public Set getModes() throws CoreException {
+	       ^^^
+Set is a raw type. References to generic type Set<E> should be parameterized
+----------
+111. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 345)
+	public ILaunchDelegate getPreferredDelegate(Set modes) throws CoreException {
+	                                            ^^^
+Set is a raw type. References to generic type Set<E> should be parameterized
+----------
+112. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/MyEnvWorkingCopy.java (at line 423)
+	public Object getAdapter(Class adapter) {
+	                         ^^^^^
+Class is a raw type. References to generic type Class<T> should be parameterized
+----------
+----------
+113. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/PythonSelectionLibrariesDialog.java (at line 112)
+	dialog.setInitialSelections(initialSelection.toArray(new String[0]));
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type String[] of the last argument to method setInitialSelections(Object...) doesn't exactly match the vararg parameter type. Cast to Object[] to confirm the non-varargs invocation, or pass individual arguments of type Object for a varargs invocation.
+----------
+----------
+114. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/pythonpathconf/package_manager/PipenvPackageManager.java (at line 122)
+	private IPythonNature nature;
+	                      ^^^^^^
+The value of the field PipenvPackageManager.PipenvProcessWindow.nature is not used
+----------
+----------
+115. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/wizards/files/AbstractPythonWizardPage.java (at line 173)
+	Label label = new Label(topLevel, SWT.NONE); //placeholder
+	      ^^^^^
+The value of the local variable label is not used
+----------
+----------
+116. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/wizards/project/IWizardNewProjectNameAndLocationPage.java (at line 13)
+	import org.python.pydev.core.IPythonNature;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.core.IPythonNature is never used
+----------
+----------
+117. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/wizards/project/NewProjectExistingSourcesWizardPage.java (at line 13)
+	import org.eclipse.jdt.core.IClasspathEntry;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.jdt.core.IClasspathEntry is never used
+----------
+118. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/wizards/project/NewProjectExistingSourcesWizardPage.java (at line 14)
+	import org.eclipse.jdt.core.IJavaProject;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.jdt.core.IJavaProject is never used
+----------
+----------
+119. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/ui/wizards/project/NewProjectNameAndLocationWizardPage.java (at line 56)
+	import org.python.pydev.core.IPythonNature;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.core.IPythonNature is never used
+----------
+----------
+120. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/utils/tablecombo/TableCombo.java (at line 9)
+	import java.lang.reflect.InvocationTargetException;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import java.lang.reflect.InvocationTargetException is never used
+----------
+121. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/utils/tablecombo/TableCombo.java (at line 12)
+	import org.eclipse.swt.SWTException;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.swt.SWTException is never used
+----------
+122. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/utils/tablecombo/TableCombo.java (at line 22)
+	import org.eclipse.swt.events.SelectionEvent;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.swt.events.SelectionEvent is never used
+----------
+123. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src/org/python/pydev/utils/tablecombo/TableCombo.java (at line 44)
+	import org.eclipse.swt.widgets.Widget;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.swt.widgets.Widget is never used
+----------
+----------
+124. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/ProposalsComparatorTest.java (at line 8)
+	import org.python.pydev.ast.codecompletion.ProposalsComparator;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.ast.codecompletion.ProposalsComparator is never used
+----------
+----------
+125. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/PyCodeCompletionTest.java (at line 17)
+	import org.python.pydev.ast.codecompletion.IPyCodeCompletion;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.ast.codecompletion.IPyCodeCompletion is never used
+----------
+126. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/PyCodeCompletionTest.java (at line 18)
+	import org.python.pydev.ast.codecompletion.PyCodeCompletion;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.ast.codecompletion.PyCodeCompletion is never used
+----------
+----------
+127. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/PythonApplyCompletionsTest.java (at line 11)
+	import org.python.pydev.ast.codecompletion.PyCodeCompletion;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.ast.codecompletion.PyCodeCompletion is never used
+----------
+----------
+128. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/PythonCompletion25Test.java (at line 15)
+	import org.python.pydev.ast.codecompletion.PyCodeCompletion;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.ast.codecompletion.PyCodeCompletion is never used
+----------
+----------
+129. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/PythonCompletionCalltipsTest.java (at line 82)
+	if (false) { //make true to see which proposals were returned.
+            for (ICompletionProposalHandle proposal : proposals) {
+                System.out.println(proposal.getDisplayString());
+            }
+        }
+	           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Dead code
+----------
+----------
+130. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/PythonCompletionParametersTest.java (at line 13)
+	import org.python.pydev.ast.codecompletion.PyCodeCompletion;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.ast.codecompletion.PyCodeCompletion is never used
+----------
+----------
+131. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/PythonCompletionWithoutBuiltinsTest.java (at line 23)
+	import org.eclipse.core.runtime.CoreException;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.core.runtime.CoreException is never used
+----------
+----------
+132. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/AbstractTokenTest.java (at line 12)
+	import org.python.pydev.ast.codecompletion.revisited.AbstractToken;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.ast.codecompletion.revisited.AbstractToken is never used
+----------
+----------
+133. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/CodeCompletionTestsBase.java (at line 44)
+	import org.python.pydev.plugin.PydevTestUtils;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.plugin.PydevTestUtils cannot be resolved
+----------
+134. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/CodeCompletionTestsBase.java (at line 52)
+	import org.python.pydev.ui.BundleInfoStub;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.ui.BundleInfoStub cannot be resolved
+----------
+135. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/CodeCompletionTestsBase.java (at line 124)
+	PydevPlugin.setBundleInfo(new BundleInfoStub());
+	                              ^^^^^^^^^^^^^^
+BundleInfoStub cannot be resolved to a type
+----------
+136. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/CodeCompletionTestsBase.java (at line 125)
+	CorePlugin.setBundleInfo(new BundleInfoStub());
+	                             ^^^^^^^^^^^^^^
+BundleInfoStub cannot be resolved to a type
+----------
+137. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/CodeCompletionTestsBase.java (at line 128)
+	PydevTestUtils.setTestPlatformStateLocation();
+	^^^^^^^^^^^^^^
+PydevTestUtils cannot be resolved
+----------
+138. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/CodeCompletionTestsBase.java (at line 647)
+	public static void assertContains(Map found, Object toFind) {
+	                                  ^^^
+Map is a raw type. References to generic type Map<K,V> should be parameterized
+----------
+----------
+139. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/ProjectModulesManagerTest.java (at line 10)
+	import org.python.pydev.ast.codecompletion.revisited.ProjectModulesManager;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.ast.codecompletion.revisited.ProjectModulesManager is never used
+----------
+----------
+140. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/ProjectStub.java (at line 22)
+	import org.python.pydev.plugin.FileStub2;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.plugin.FileStub2 cannot be resolved
+----------
+141. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/ProjectStub.java (at line 55)
+	fileStub = new FileStub2(name);
+	^^^^^^^^
+FileStub2 cannot be resolved to a type
+----------
+142. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/ProjectStub.java (at line 55)
+	fileStub = new FileStub2(name);
+	               ^^^^^^^^^
+FileStub2 cannot be resolved to a type
+----------
+143. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/ProjectStub.java (at line 56)
+	return fileStub;
+	       ^^^^^^^^
+FileStub2 cannot be resolved to a type
+----------
+144. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/ProjectStub.java (at line 59)
+	public FileStub2 fileStub;
+	       ^^^^^^^^^
+FileStub2 cannot be resolved to a type
+----------
+----------
+145. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/AbstractVisitorTest.java (at line 27)
+	import org.python.pydev.ui.BundleInfoStub;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.ui.BundleInfoStub cannot be resolved
+----------
+146. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/AbstractVisitorTest.java (at line 42)
+	PydevPlugin.setBundleInfo(new BundleInfoStub());
+	                              ^^^^^^^^^^^^^^
+BundleInfoStub cannot be resolved to a type
+----------
+147. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/AbstractVisitorTest.java (at line 43)
+	CorePlugin.setBundleInfo(new BundleInfoStub());
+	                             ^^^^^^^^^^^^^^
+BundleInfoStub cannot be resolved to a type
+----------
+148. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/AbstractVisitorTest.java (at line 132)
+	private Iterator<ASTEntry> createModuleAndGetImports(String strDoc, Class classToGet) throws Exception {
+	                                                                    ^^^^^
+Class is a raw type. References to generic type Class<T> should be parameterized
+----------
+----------
+149. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/FindDefinitionModelVisitorTest.java (at line 20)
+	import org.python.pydev.ast.codecompletion.revisited.visitors.AssignDefinition;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.ast.codecompletion.revisited.visitors.AssignDefinition is never used
+----------
+150. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/FindDefinitionModelVisitorTest.java (at line 21)
+	import org.python.pydev.ast.codecompletion.revisited.visitors.Definition;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.ast.codecompletion.revisited.visitors.Definition is never used
+----------
+----------
+151. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/FindScopeVisitorTest.java (at line 19)
+	import org.python.pydev.parser.PyParserTestBase;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.parser.PyParserTestBase cannot be resolved
+----------
+152. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/FindScopeVisitorTest.java (at line 22)
+	public class FindScopeVisitorTest extends PyParserTestBase {
+	                                          ^^^^^^^^^^^^^^^^
+PyParserTestBase cannot be resolved to a type
+----------
+153. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/FindScopeVisitorTest.java (at line 27)
+	test.setUp();
+	     ^^^^^
+The method setUp() is undefined for the type FindScopeVisitorTest
+----------
+154. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/FindScopeVisitorTest.java (at line 29)
+	test.tearDown();
+	     ^^^^^^^^
+The method tearDown() is undefined for the type FindScopeVisitorTest
+----------
+155. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/FindScopeVisitorTest.java (at line 30)
+	junit.textui.TestRunner.run(FindScopeVisitorTest.class);
+	                        ^^^
+The method run(Class<? extends TestCase>) in the type TestRunner is not applicable for the arguments (Class<FindScopeVisitorTest>)
+----------
+156. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/FindScopeVisitorTest.java (at line 45)
+	SimpleNode ast = parseLegalDocStr(s);
+	                 ^^^^^^^^^^^^^^^^
+The method parseLegalDocStr(String) is undefined for the type FindScopeVisitorTest
+----------
+157. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/FindScopeVisitorTest.java (at line 78)
+	assertTrue(localScope.getClassDef() != null);
+	^^^^^^^^^^
+The method assertTrue(boolean) is undefined for the type FindScopeVisitorTest
+----------
+158. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/FindScopeVisitorTest.java (at line 88)
+	assertEquals(1, found.size());
+	^^^^^^^^^^^^
+The method assertEquals(int, int) is undefined for the type FindScopeVisitorTest
+----------
+159. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/FindScopeVisitorTest.java (at line 89)
+	assertEquals("str", found.get(0).getActTok());
+	^^^^^^^^^^^^
+The method assertEquals(String, String) is undefined for the type FindScopeVisitorTest
+----------
+160. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/FindScopeVisitorTest.java (at line 99)
+	assertEquals(2, found.size());
+	^^^^^^^^^^^^
+The method assertEquals(int, int) is undefined for the type FindScopeVisitorTest
+----------
+161. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/FindScopeVisitorTest.java (at line 100)
+	assertEquals("list", found.get(0).getActTok());
+	^^^^^^^^^^^^
+The method assertEquals(String, String) is undefined for the type FindScopeVisitorTest
+----------
+162. ERROR in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/revisited/visitors/FindScopeVisitorTest.java (at line 101)
+	assertEquals("tuple", found.get(1).getActTok());
+	^^^^^^^^^^^^
+The method assertEquals(String, String) is undefined for the type FindScopeVisitorTest
+----------
+----------
+163. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/ast/codecompletion/shell/PythonShellTest.java (at line 17)
+	import org.eclipse.core.runtime.CoreException;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.core.runtime.CoreException is never used
+----------
+----------
+164. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/tests_completions/org/python/pydev/editor/codecompletion/templates/PyDocumentTemplateContextTest.java (at line 16)
+	import org.python.pydev.editor.codecompletion.templates.PyDocumentTemplateContext;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.python.pydev.editor.codecompletion.templates.PyDocumentTemplateContext is never used
+----------
+----------
+165. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/InterpreterInfoTreeNodeRoot.java (at line 49)
+	InterpreterInfoTreeNodeRoot root = this;
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^
+InterpreterInfoTreeNodeRoot is a raw type. References to generic type InterpreterInfoTreeNodeRoot<X> should be parameterized
+----------
+166. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/InterpreterInfoTreeNodeRoot.java (at line 55)
+	belowRootFiles = new PythonpathTreeNode(root, file.getParentFile(),
+	                                        ^^^^
+Type safety: The expression of type InterpreterInfoTreeNodeRoot needs unchecked conversion to conform to TreeNode<LabelAndImage>
+----------
+----------
+167. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/PythonBaseModelProvider.java (at line 453)
+	TreeNode treeNode = (TreeNode) element;
+	^^^^^^^^
+TreeNode is a raw type. References to generic type TreeNode<T> should be parameterized
+----------
+168. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/PythonBaseModelProvider.java (at line 453)
+	TreeNode treeNode = (TreeNode) element;
+	                     ^^^^^^^^
+TreeNode is a raw type. References to generic type TreeNode<T> should be parameterized
+----------
+169. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/PythonBaseModelProvider.java (at line 543)
+	TreeNode noWorkingSets = createErrorNoWorkingSetsDefined(parentElement);
+	^^^^^^^^
+TreeNode is a raw type. References to generic type TreeNode<T> should be parameterized
+----------
+170. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/PythonBaseModelProvider.java (at line 1209)
+	treeViewer.add(resource, addedObjects);
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type IResource[] of the last argument to method add(Object, Object...) doesn't exactly match the vararg parameter type. Cast to Object[] to confirm the non-varargs invocation, or pass individual arguments of type Object for a varargs invocation.
+----------
+171. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/PythonBaseModelProvider.java (at line 1222)
+	treeViewer.remove(removedObjects);
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type IResource[] of the last argument to method remove(Object...) doesn't exactly match the vararg parameter type. Cast to Object[] to confirm the non-varargs invocation, or pass individual arguments of type Object for a varargs invocation.
+----------
+----------
+172. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyCopyResourceAction.java (at line 52)
+	Iterator iterator = sSelection.iterator();
+	^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+----------
+173. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyDeleteResourceAction.java (at line 64)
+	Iterator iterator = sSelection.iterator();
+	^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+----------
+174. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyMoveResourceAction.java (at line 57)
+	Iterator iterator = sSelection.iterator();
+	^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+----------
+175. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyOpenPythonFileAction.java (at line 162)
+	Iterator iterator = sSelection.iterator();
+	^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+----------
+176. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyPasteAction.java (at line 54)
+	Iterator iterator = sSelection.iterator();
+	^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+----------
+177. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyRenameResourceAction.java (at line 35)
+	import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'IDEWorkbenchMessages' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+178. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyRenameResourceAction.java (at line 36)
+	import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'IDEWorkbenchPlugin' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+179. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyRenameResourceAction.java (at line 77)
+	final IWorkspace workspace = IDEWorkbenchPlugin.getPluginWorkspace();
+	                             ^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'IDEWorkbenchPlugin' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+180. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyRenameResourceAction.java (at line 77)
+	final IWorkspace workspace = IDEWorkbenchPlugin.getPluginWorkspace();
+	                                                ^^^^^^^^^^^^^^^^^^
+Discouraged access: The method 'IDEWorkbenchPlugin.getPluginWorkspace()' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+181. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyRenameResourceAction.java (at line 83)
+	return IDEWorkbenchMessages.RenameResourceAction_nameMustBeDifferent;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'IDEWorkbenchMessages' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+182. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyRenameResourceAction.java (at line 83)
+	return IDEWorkbenchMessages.RenameResourceAction_nameMustBeDifferent;
+	                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The field 'IDEWorkbenchMessages.RenameResourceAction_nameMustBeDifferent' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+183. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyRenameResourceAction.java (at line 90)
+	return IDEWorkbenchMessages.RenameResourceAction_nameExists;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'IDEWorkbenchMessages' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+184. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyRenameResourceAction.java (at line 90)
+	return IDEWorkbenchMessages.RenameResourceAction_nameExists;
+	                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The field 'IDEWorkbenchMessages.RenameResourceAction_nameExists' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+185. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyRenameResourceAction.java (at line 96)
+	InputDialog dialog = new InputDialog(shell, IDEWorkbenchMessages.RenameResourceAction_inputDialogTitle,
+	                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'IDEWorkbenchMessages' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+186. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyRenameResourceAction.java (at line 96)
+	InputDialog dialog = new InputDialog(shell, IDEWorkbenchMessages.RenameResourceAction_inputDialogTitle,
+	                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The field 'IDEWorkbenchMessages.RenameResourceAction_inputDialogTitle' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+187. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyRenameResourceAction.java (at line 97)
+	IDEWorkbenchMessages.RenameResourceAction_inputDialogMessage, resource.getName(), validator);
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type 'IDEWorkbenchMessages' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+188. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyRenameResourceAction.java (at line 97)
+	IDEWorkbenchMessages.RenameResourceAction_inputDialogMessage, resource.getName(), validator);
+	                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The field 'IDEWorkbenchMessages.RenameResourceAction_inputDialogMessage' is not API (restriction on classpath entry '/Users/tcv/.p2/pool/plugins/org.eclipse.ui.ide_3.19.100.v20220820-0412.jar')
+----------
+189. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/PyRenameResourceAction.java (at line 119)
+	Iterator iterator = sSelection.iterator();
+	^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+----------
+190. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/copied/CopyFilesAndFoldersOperation.java (at line 28)
+	import org.eclipse.core.resources.WorkspaceJob;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.core.resources.WorkspaceJob is never used
+----------
+191. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/copied/CopyFilesAndFoldersOperation.java (at line 49)
+	import org.eclipse.swt.widgets.Display;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.swt.widgets.Display is never used
+----------
+----------
+192. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/actions/copied/WorkspaceAction.java (at line 361)
+	return (List<IResource>) getSelectedResources();
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked cast from List<capture#5-of ? extends IResource> to List<IResource>
+----------
+----------
+193. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/decorator/ProblemMarkerManager.java (at line 98)
+	private ListenerList fListeners;
+	        ^^^^^^^^^^^^
+ListenerList is a raw type. References to generic type ListenerList<E> should be parameterized
+----------
+194. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/decorator/ProblemMarkerManager.java (at line 111)
+	fListeners = new ListenerList();
+	                 ^^^^^^^^^^^^
+ListenerList is a raw type. References to generic type ListenerList<E> should be parameterized
+----------
+195. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/decorator/ProblemMarkerManager.java (at line 163)
+	fListeners.add(listener);
+	^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The method add(Object) belongs to the raw type ListenerList. References to generic type ListenerList<E> should be parameterized
+----------
+----------
+196. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/decorator/ProblemsLabelDecorator.java (at line 33)
+	private ListenerList fListeners;
+	        ^^^^^^^^^^^^
+ListenerList is a raw type. References to generic type ListenerList<E> should be parameterized
+----------
+197. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/decorator/ProblemsLabelDecorator.java (at line 106)
+	fListeners = new ListenerList();
+	                 ^^^^^^^^^^^^
+ListenerList is a raw type. References to generic type ListenerList<E> should be parameterized
+----------
+198. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/decorator/ProblemsLabelDecorator.java (at line 108)
+	fListeners.add(listener);
+	^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The method add(Object) belongs to the raw type ListenerList. References to generic type ListenerList<E> should be parameterized
+----------
+----------
+199. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/elements/PythonNode.java (at line 15)
+	public class PythonNode implements Comparable, IWrappedResource {
+	                                   ^^^^^^^^^^
+Comparable is a raw type. References to generic type Comparable<T> should be parameterized
+----------
+----------
+200. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/filters/AbstractFilter.java (at line 27)
+	TreeNode treeNode = (TreeNode) element;
+	^^^^^^^^
+TreeNode is a raw type. References to generic type TreeNode<T> should be parameterized
+----------
+201. WARNING in /Users/tcv/git/Pydev/plugins/org.python.pydev/src_navigator/org/python/pydev/navigator/filters/AbstractFilter.java (at line 27)
+	TreeNode treeNode = (TreeNode) element;
+	                     ^^^^^^^^
+TreeNode is a raw type. References to generic type TreeNode<T> should be parameterized
+----------
+201 problems (25 errors, 172 warnings, 4 infos)
