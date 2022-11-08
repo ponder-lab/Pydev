@@ -18,9 +18,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.debug.core,
  org.eclipse.debug.ui,
  org.eclipse.ui.workbench.texteditor,
- org.python.pydev.shared_core;bundle-version="[9.3.0,9.3.2)",
- org.python.pydev.core;bundle-version="[9.3.0,9.3.2)",
- org.python.pydev.shared_ui;bundle-version="[9.3.0,9.3.2)",
+ org.python.pydev.shared_core;bundle-version="[9.3.1,9.3.2)",
+ org.python.pydev.core;bundle-version="[9.3.1,9.3.2)",
+ org.python.pydev.shared_ui;bundle-version="[9.3.1,9.3.2)",
  org.eclipse.ui.ide
 Bundle-ActivationPolicy: lazy
 Export-Package: org.apache.commons.logging,org.apache.commons.logging.
