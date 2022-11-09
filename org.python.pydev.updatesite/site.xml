@@ -6,9 +6,5 @@
    <feature url="features/org.python.pydev.feature_9.3.1.qualifier.jar" id="org.python.pydev.feature" version="9.3.1.qualifier">
       <category name="org.python.pydev.updatesite"/>
    </feature>
-   
-   <feature url="features/org.python.pydev.feature.source_9.3.1.qualifier.jar" id="org.python.pydev.feature.source" version="9.3.1.qualifier">
-      <category name="org.python.pydev.updatesite"/>
-   </feature>
-   <category-def name="org.python.pydev.updatesite" label="PyDev"/>
+   <category-def name="org.python.pydev.updatesite" label="Pydev"/>
 </site>
