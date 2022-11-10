@@ -191,7 +191,6 @@ public class TestDependent {
             if (TEST_PYDEV_BASE_LOC == null) {
                 System.err.println("TEST_PYDEV_BASE_LOC variable MUST be set in " + propertiesFile + " to run tests.");
             } else {
-
                 TEST_PYDEV_BASE_LOC = TEST_PYDEV_BASE_LOC.replaceFirst("^~",
                         Matcher.quoteReplacement(System.getProperty("user.home")));
                 if (!new File(TEST_PYDEV_BASE_LOC).exists()) {
