@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
+import java.util.regex.Matcher;
 
 import org.python.pydev.shared_core.io.FileUtils;
 
@@ -189,9 +190,13 @@ public class TestDependent {
 
             if (TEST_PYDEV_BASE_LOC == null) {
                 System.err.println("TEST_PYDEV_BASE_LOC variable MUST be set in " + propertiesFile + " to run tests.");
-            } else if (!new File(TEST_PYDEV_BASE_LOC).exists()) {
-                System.err.println("TEST_PYDEV_BASE_LOC variable points to path that does NOT exist: "
-                        + TEST_PYDEV_BASE_LOC);
+            } else {
+                TEST_PYDEV_BASE_LOC = TEST_PYDEV_BASE_LOC.replaceFirst("^~",
+                        Matcher.quoteReplacement(System.getProperty("user.home")));
+                if (!new File(TEST_PYDEV_BASE_LOC).exists()) {
+                    System.err.println("TEST_PYDEV_BASE_LOC variable points to path that does NOT exist: "
+                            + TEST_PYDEV_BASE_LOC);
+                }
             }
 
             if (PYTHON2_EXE == null) {
