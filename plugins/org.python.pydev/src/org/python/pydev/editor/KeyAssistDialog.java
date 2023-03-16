@@ -85,7 +85,7 @@ public class KeyAssistDialog extends PopupDialog {
         //otherwise the focus would end up in a null Control in linux (GTK),
         //which made the dialog show and hide quickly and go out of the ctrl+2 mode.
         //See: http://sourceforge.net/tracker/?func=detail&aid=2984743&group_id=85796&atid=577329
-        super((Shell) null, PopupDialog.HOVER_SHELLSTYLE, false, false, false, false, null, null);
+        super(null, PopupDialog.HOVER_SHELLSTYLE, false, false, false, false, false, null, null);
         this.setInfoText("   Ctrl+2 actions   ");
     }
 
