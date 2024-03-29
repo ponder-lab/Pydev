@@ -9,11 +9,14 @@
  */
 package org.python.pydev.ast.codecompletion.revisited;
 
+import java.io.File;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectNature;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
@@ -22,6 +25,7 @@ import org.python.pydev.core.IPythonNature;
 import org.python.pydev.plugin.FileStub2;
 import org.python.pydev.plugin.nature.PythonNature;
 import org.python.pydev.shared_core.resource_stubs.AbstractIProjectStub;
+import org.python.pydev.shared_core.resource_stubs.FolderStub;
 import org.python.pydev.shared_core.string.StringUtils;
 
 public class ProjectStub extends AbstractIProjectStub implements IProject {
@@ -32,6 +36,16 @@ public class ProjectStub extends AbstractIProjectStub implements IProject {
     private PythonNature nature;
     private String path;
     private String externalSourcePath;
+
+    @Override
+    public IResource findMember(IPath path) {
+        return findMember(path, false);
+    }
+
+    @Override
+    public IResource findMember(IPath path, boolean includePhantoms) {
+        return null;
+    }
 
     public ProjectStub(String name, String path2, IProject[] referencedProjects, IProject[] referencingProjects) {
         List<String> split = StringUtils.split(path2, '|');
@@ -138,5 +152,14 @@ public class ProjectStub extends AbstractIProjectStub implements IProject {
     @Override
     public String toString() {
         return "ProjectStub: " + this.name;
+    }
+
+    @Override
+    public IFolder getFolder(IPath path) {
+        IPath fullPath = this.getFullPath();
+        File file = fullPath.toFile();
+        org.python.pydev.shared_core.resource_stubs.ProjectStub projectStub = new org.python.pydev.shared_core.resource_stubs.ProjectStub(
+                file, nature);
+        return new FolderStub(projectStub, file);
     }
 }
