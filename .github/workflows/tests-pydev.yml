@@ -11,7 +11,9 @@ on:
       - pydev_9_3
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Pinned to 22.04: setup-python no longer provides Python 2.7.18 on
+    # ubuntu-latest (24.04), and the test suite exercises the Py2 grammar.
+    runs-on: ubuntu-22.04
 
     steps:
       - uses: actions/checkout@v4
