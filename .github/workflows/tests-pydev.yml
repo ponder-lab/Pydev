@@ -57,12 +57,18 @@ jobs:
 
       - name: Set up Conda Python 3.8 env
         # InterpreterInfoTest.testObtainCondaEnv needs a real conda env whose
-        # bin/ holds python, conda and activate. Build one at a fixed prefix
-        # (matching CONDA_PYTHON_38_ENV in TestDependent.github.properties) from
-        # the Miniconda preinstalled on the runner.
+        # bin/ holds python, conda and activate. PyDev activates it by NAME
+        # (`source <env>/bin/activate <basename>`), so it must be a named env,
+        # not a -p prefix env. Build one from the Miniconda preinstalled on the
+        # runner and point CONDA_PYTHON_38_ENV at it.
         run: |
-            $CONDA/bin/conda create -y -p "$HOME/conda_py38" python=3.8 conda
-            ls "$HOME/conda_py38/bin/" | grep -E '^(python|conda|activate)$'
+            sudo chown -R "$(id -un)" "$CONDA"
+            "$CONDA/bin/conda" create -y -n conda_py38 python=3.8 conda
+            env_path="$CONDA/envs/conda_py38/"
+            ls "${env_path}bin/" | grep -E '^(python|conda|activate)$'
+            props=plugins/org.python.pydev.core/tests/org/python/pydev/core/TestDependent.github.properties
+            sed -i "s#^CONDA_PYTHON_38_ENV =.*#CONDA_PYTHON_38_ENV = ${env_path}#" "$props"
+            grep '^CONDA_PYTHON_38_ENV' "$props"
 
       - name: Patch test platform Java paths
         # setup-java installs a drifting patch version under a versioned path and
