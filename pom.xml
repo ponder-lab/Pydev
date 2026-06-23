@@ -188,7 +188,9 @@
           <skipAfterFailureCount>1</skipAfterFailureCount>
           <!-- <testClass>org.python.pydev.ast.codecompletion.PythonCompletionWithBuiltinsTest</testClass> -->
           <excludes>
-            <exclude>**/IronpythonTest.java</exclude>
+            <!-- IronPython is .NET-only and cannot be provisioned on the Linux
+                 CI runner, so exclude all of its tests (not just IronpythonTest). -->
+            <exclude>**/Ironpython*Test.java</exclude>
             <exclude>**/Abstract*Test.java</exclude>
             <exclude>**/Abstract*TestCase.java</exclude>
             <exclude>**/*$*</exclude>
