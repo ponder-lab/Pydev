@@ -55,6 +55,14 @@ jobs:
             curl https://repo1.maven.org/maven2/org/python/jython-installer/2.7.2/jython-installer-2.7.2.jar --output jython-installer.jar
             java -jar jython-installer.jar -s -d jython_install_dir
             
+      - name: Patch test platform Java paths
+        # setup-java installs a drifting patch version under a versioned path and
+        # exports JAVA_HOME; rewrite the hardcoded JAVA_LOCATION to match it.
+        run: |
+            props=plugins/org.python.pydev.core/tests/org/python/pydev/core/TestDependent.github.properties
+            sed -i "s#^JAVA_LOCATION =.*#JAVA_LOCATION = $JAVA_HOME/bin/java#" "$props"
+            grep '^JAVA_LOCATION' "$props"
+
       - name: Print Python/Java info
         run: |
             pwd
@@ -74,8 +82,8 @@ jobs:
             echo ----
             which java
             which mvn
-            echo ---- rt.jar should be listed below
-            find /opt/hostedtoolcache/Java_Adopt_jdk/11.0.11-9/x64/ -name "*.jar"
+            echo "---- JAVA_HOME=$JAVA_HOME"
+            find "$JAVA_HOME" -name "*.jar"
             
       - name: xvfb
         shell: bash
