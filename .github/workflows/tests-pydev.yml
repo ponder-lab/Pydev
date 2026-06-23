@@ -54,7 +54,16 @@ jobs:
         run: |
             curl https://repo1.maven.org/maven2/org/python/jython-installer/2.7.2/jython-installer-2.7.2.jar --output jython-installer.jar
             java -jar jython-installer.jar -s -d jython_install_dir
-            
+
+      - name: Set up Conda Python 3.8 env
+        # InterpreterInfoTest.testObtainCondaEnv needs a real conda env whose
+        # bin/ holds python, conda and activate. Build one at a fixed prefix
+        # (matching CONDA_PYTHON_38_ENV in TestDependent.github.properties) from
+        # the Miniconda preinstalled on the runner.
+        run: |
+            $CONDA/bin/conda create -y -p "$HOME/conda_py38" python=3.8 conda
+            ls "$HOME/conda_py38/bin/" | grep -E '^(python|conda|activate)$'
+
       - name: Patch test platform Java paths
         # setup-java installs a drifting patch version under a versioned path and
         # exports JAVA_HOME; rewrite the hardcoded JAVA_LOCATION to match it.
