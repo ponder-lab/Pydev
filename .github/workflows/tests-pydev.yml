@@ -20,13 +20,21 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Set up JDK 11
+      - name: Set up JDK 17
+        # Tycho 4.x requires Java 17+ (and Maven 3.9+) to run; bundles still
+        # target Java 11 via their BREE.
         uses: actions/setup-java@v4
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          java-version: '17'
+          distribution: 'temurin'
           cache: 'maven'
-          
+
+      - name: Set up Maven 3.9
+        # Tycho 4.x requires Maven 3.9+, newer than the runner default.
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.9.9
+
       - name: Set up Python 2.7
         # setup-python dropped Python 2.7 (June 2023), so install it from the
         # Ubuntu 22.04 archive (24.04 no longer ships it) and bootstrap the

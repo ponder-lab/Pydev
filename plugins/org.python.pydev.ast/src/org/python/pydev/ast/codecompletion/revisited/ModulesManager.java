@@ -223,10 +223,7 @@ public abstract class ModulesManager implements IModulesManager {
      *
      * It is sorted so that we can get things in a 'subtree' faster
      */
-    // Public (not protected) so ModulesManagerTest, which lives in a separate
-    // OSGi bundle (distinct runtime package), can read it without an
-    // IllegalAccessError.
-    public final PyPublicTreeMap<ModulesKey, ModulesKey> modulesKeys = new PyPublicTreeMap<ModulesKey, ModulesKey>();
+    protected final PyPublicTreeMap<ModulesKey, ModulesKey> modulesKeys = new PyPublicTreeMap<ModulesKey, ModulesKey>();
     protected final Object modulesKeysLock = new Object();
 
     protected static final ModulesManagerCache cache = new ModulesManagerCache();

@@ -124,8 +124,8 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <properties>
-    <tycho-version>2.7.5</tycho-version>
-    <tycho-extras-version>2.7.5</tycho-extras-version>
+    <tycho-version>4.0.11</tycho-version>
+    <tycho-extras-version>4.0.11</tycho-extras-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <repository.id>eclipse-2022-09</repository.id>
     <repository.url>http://download.eclipse.org/releases/2022-09/</repository.url>
@@ -188,9 +188,13 @@
           <skipAfterFailureCount>1</skipAfterFailureCount>
           <!-- <testClass>org.python.pydev.ast.codecompletion.PythonCompletionWithBuiltinsTest</testClass> -->
           <excludes>
-            <!-- IronPython is .NET-only and cannot be provisioned on the Linux
-                 CI runner, so exclude all of its tests (not just IronpythonTest). -->
-            <exclude>**/Ironpython*Test.java</exclude>
+            <!-- IronPython (.NET-only) and Jython cannot be provisioned/exercised
+                 on the Linux CI runner; exclude their tests as upstream does. -->
+            <exclude>**/*IronPython*Test.java</exclude>
+            <exclude>**/*Ironpython*Test.java</exclude>
+            <exclude>**/*IronPython*TestsBase.java</exclude>
+            <exclude>**/*Jython*Test.java</exclude>
+            <exclude>**/*Jython*TestsBase.java</exclude>
             <exclude>**/Abstract*Test.java</exclude>
             <exclude>**/Abstract*TestCase.java</exclude>
             <exclude>**/*$*</exclude>
