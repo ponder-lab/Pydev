@@ -56,16 +56,20 @@ jobs:
             java -jar jython-installer.jar -s -d jython_install_dir
 
       - name: Set up Conda Python 3.8 env
-        # InterpreterInfoTest.testObtainCondaEnv needs a real conda env whose
-        # bin/ holds python, conda and activate. PyDev activates it by NAME
-        # (`source <env>/bin/activate <basename>`), so it must be a named env,
-        # not a -p prefix env. Build one from the Miniconda preinstalled on the
-        # runner and point CONDA_PYTHON_38_ENV at it.
+        # InterpreterInfoTest.testObtainCondaEnv activates a named conda env and
+        # checks that its activate.d script ran. PyDev resolves conda by first
+        # looking next to the interpreter, then falling back to PATH; it must
+        # find the BASE conda (whose envs/ holds the named env and whose activate
+        # sources the env's activate.d), so do NOT install conda into the env and
+        # put the base conda bin on PATH. Build the env from the runner Miniconda
+        # and point CONDA_PYTHON_38_ENV at it.
         run: |
             sudo chown -R "$(id -un)" "$CONDA"
-            "$CONDA/bin/conda" create -y -n conda_py38 python=3.8 conda
+            "$CONDA/bin/conda" create -y -n conda_py38 python=3.8
+            echo "$CONDA/bin" >> "$GITHUB_PATH"
             env_path="$CONDA/envs/conda_py38/"
-            ls "${env_path}bin/" | grep -E '^(python|conda|activate)$'
+            test -x "${env_path}bin/python"
+            test -x "$CONDA/bin/conda" && test -f "$CONDA/bin/activate"
             props=plugins/org.python.pydev.core/tests/org/python/pydev/core/TestDependent.github.properties
             sed -i "s#^CONDA_PYTHON_38_ENV =.*#CONDA_PYTHON_38_ENV = ${env_path}#" "$props"
             grep '^CONDA_PYTHON_38_ENV' "$props"
