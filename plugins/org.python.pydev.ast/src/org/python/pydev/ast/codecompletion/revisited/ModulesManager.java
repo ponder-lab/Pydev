@@ -403,8 +403,11 @@ public abstract class ModulesManager implements IModulesManager {
      *
      *  and was changed to be faster (as this was one of the slow things in startup).
      */
-    /*default*/@SuppressWarnings("rawtypes")
-    static void handleFileContents(ModulesManager modulesManager, String fileContents,
+    // Public so ModulesManagerTest (in a separate OSGi bundle, hence a distinct
+    // runtime package) can call it without an IllegalAccessError on the
+    // otherwise package-private method.
+    @SuppressWarnings("rawtypes")
+    public static void handleFileContents(ModulesManager modulesManager, String fileContents,
             HashMap<Integer, String> intToString) {
         String string = fileContents;
         int len = string.length();

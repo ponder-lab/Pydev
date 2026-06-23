@@ -623,9 +623,14 @@ public abstract class AbstractShell {
 
     /**
      * Kill our sub-process.
+     *
+     * Public so that PythonShellTest (which lives in a separate OSGi bundle and
+     * therefore a distinct runtime package) can call it from tearDown without an
+     * IllegalAccessError on the otherwise package-private method.
+     *
      * @throws IOException
      */
-    /*default*/void endIt() {
+    public void endIt() {
         synchronized (ioLock) {
             try {
                 closeConn();

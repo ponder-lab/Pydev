@@ -11,31 +11,38 @@ on:
       - pydev_9_3
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Pinned to 22.04: setup-python no longer provides Python 2.7.18 on
+    # ubuntu-latest (24.04), and the test suite exercises the Py2 grammar.
+    runs-on: ubuntu-22.04
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           submodules: recursive
-          
+
       - name: Set up JDK 11
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           java-version: '11'
           distribution: 'adopt'
           cache: 'maven'
-          
+
       - name: Set up Python 2.7
-        uses: actions/setup-python@v2
-        with:
-          python-version: 2.7.18
-          
+        # setup-python dropped Python 2.7 (June 2023), so install it from the
+        # Ubuntu 22.04 archive (24.04 no longer ships it) and bootstrap the
+        # last pip that supports Python 2.7.
+        run: |
+            sudo apt-get update
+            sudo apt-get install -y python2-dev
+            curl -sSL https://bootstrap.pypa.io/pip/2.7/get-pip.py -o /tmp/get-pip.py
+            sudo python2 /tmp/get-pip.py
+
       - name: Set up Python 2.7 deps
         run: |
-            python2 -m pip install numpy django cython zope.interface
+            sudo python2 -m pip install numpy django cython zope.interface
             
       - name: Set up Python 3.8
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: 3.8.12
           
@@ -47,7 +54,34 @@ jobs:
         run: |
             curl https://repo1.maven.org/maven2/org/python/jython-installer/2.7.2/jython-installer-2.7.2.jar --output jython-installer.jar
             java -jar jython-installer.jar -s -d jython_install_dir
-            
+
+      - name: Set up Conda Python 3.8 env
+        # InterpreterInfoTest.testObtainCondaEnv activates a named conda env and
+        # checks that its activate.d script ran. PyDev resolves conda by first
+        # looking next to the interpreter, then falling back to PATH; it must
+        # find the BASE conda (whose envs/ holds the named env and whose activate
+        # sources the env's activate.d), so do NOT install conda into the env and
+        # put the base conda bin on PATH. Build the env from the runner Miniconda
+        # and point CONDA_PYTHON_38_ENV at it.
+        run: |
+            sudo chown -R "$(id -un)" "$CONDA"
+            "$CONDA/bin/conda" create -y -n conda_py38 python=3.8
+            echo "$CONDA/bin" >> "$GITHUB_PATH"
+            env_path="$CONDA/envs/conda_py38/"
+            test -x "${env_path}bin/python"
+            test -x "$CONDA/bin/conda" && test -f "$CONDA/bin/activate"
+            props=plugins/org.python.pydev.core/tests/org/python/pydev/core/TestDependent.github.properties
+            sed -i "s#^CONDA_PYTHON_38_ENV =.*#CONDA_PYTHON_38_ENV = ${env_path}#" "$props"
+            grep '^CONDA_PYTHON_38_ENV' "$props"
+
+      - name: Patch test platform Java paths
+        # setup-java installs a drifting patch version under a versioned path and
+        # exports JAVA_HOME; rewrite the hardcoded JAVA_LOCATION to match it.
+        run: |
+            props=plugins/org.python.pydev.core/tests/org/python/pydev/core/TestDependent.github.properties
+            sed -i "s#^JAVA_LOCATION =.*#JAVA_LOCATION = $JAVA_HOME/bin/java#" "$props"
+            grep '^JAVA_LOCATION' "$props"
+
       - name: Print Python/Java info
         run: |
             pwd
@@ -67,8 +101,8 @@ jobs:
             echo ----
             which java
             which mvn
-            echo ---- rt.jar should be listed below
-            find /opt/hostedtoolcache/Java_Adopt_jdk/11.0.11-9/x64/ -name "*.jar"
+            echo "---- JAVA_HOME=$JAVA_HOME"
+            find "$JAVA_HOME" -name "*.jar"
             
       - name: xvfb
         shell: bash
