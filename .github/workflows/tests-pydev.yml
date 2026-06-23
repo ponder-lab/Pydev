@@ -28,13 +28,18 @@ jobs:
           cache: 'maven'
           
       - name: Set up Python 2.7
-        uses: actions/setup-python@v5
-        with:
-          python-version: 2.7.18
-          
+        # setup-python dropped Python 2.7 (June 2023), so install it from the
+        # Ubuntu 22.04 archive (24.04 no longer ships it) and bootstrap the
+        # last pip that supports Python 2.7.
+        run: |
+            sudo apt-get update
+            sudo apt-get install -y python2-dev
+            curl -sSL https://bootstrap.pypa.io/pip/2.7/get-pip.py -o /tmp/get-pip.py
+            sudo python2 /tmp/get-pip.py
+
       - name: Set up Python 2.7 deps
         run: |
-            python2 -m pip install numpy django cython zope.interface
+            sudo python2 -m pip install numpy django cython zope.interface
             
       - name: Set up Python 3.8
         uses: actions/setup-python@v5
