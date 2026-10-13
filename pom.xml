@@ -183,6 +183,13 @@
             <explodedBundle>org.python.pydev.shared_interactive_console</explodedBundle>
             <explodedBundle>org.python.pydev.shared_ui</explodedBundle>
           </explodedBundles>
+          <!-- Print each test as it starts and finishes, so a run that hangs shows where. -->
+          <providerProperties>
+            <property>
+              <name>listener</name>
+              <value>org.python.pydev.shared_core.PrintOutCurrentTestRunListener</value>
+            </property>
+          </providerProperties>
           <!-- See: https://www.eclipse.org/tycho/sitedocs/tycho-surefire-plugin/test-mojo.html -->
           <!-- <useUIThread>false</useUIThread> -->
           <!-- <testClass>org.python.pydev.ast.codecompletion.PythonCompletionWithBuiltinsTest</testClass> -->
