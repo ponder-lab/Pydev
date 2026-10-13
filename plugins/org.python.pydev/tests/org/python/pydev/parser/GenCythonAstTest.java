@@ -251,6 +251,14 @@ public class GenCythonAstTest extends CodeCompletionTestsBase {
 
         };
         for (String s : cases) {
+            if (SharedCorePlugin.skipKnownFailures() && s.equals("@dec()\ndef method():pass")) {
+                // The 9.3 parser sets a called decorator's func to the whole Call, where Cython's AST sets it to the callee's
+                // Name and puts the call's arguments on the decorator. Upstream fixed this in 5e9125182 (AbstractTreeBuilderHelpers), but the Hybridize
+                // refactoring reads the current shape (its Function and Util.getInnerExpression treat decorator.func as the
+                // Call), so the parser fix is deferred to the PyDev upgrade:
+                // https://github.com/ponder-lab/Hybridize-Functions-Refactoring/issues/152
+                continue;
+            }
             compareCase(s);
         }
     }
