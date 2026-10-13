@@ -22,6 +22,7 @@ import org.python.pydev.parser.visitors.comparator.DifferException;
 import org.python.pydev.parser.visitors.comparator.SimpleNodeComparator;
 import org.python.pydev.parser.visitors.comparator.SimpleNodeComparator.LineColComparator;
 import org.python.pydev.parser.visitors.comparator.SimpleNodeComparator.RegularLineComparator;
+import org.python.pydev.shared_core.SharedCorePlugin;
 import org.python.pydev.shared_core.io.FileUtils;
 import org.python.pydev.shared_core.model.ISimpleNode;
 import org.python.pydev.shared_core.parsing.BaseParser.ParseOutput;
@@ -81,6 +82,10 @@ public class GenCythonAstTest extends CodeCompletionTestsBase {
     }
 
     public void testGenCythonFromCythonTests() throws Exception {
+        if (SharedCorePlugin.skipKnownFailures()) {
+            return;
+        }
+        // i.e.: This test is local-only...
         File cythonTestCompileDir = new File("X:\\cython\\");
         assertTrue(cythonTestCompileDir.isDirectory());
         FileUtils.visitDirectory(cythonTestCompileDir, true, (Path path) -> {
