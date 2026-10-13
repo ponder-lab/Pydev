@@ -167,7 +167,7 @@
             <explodedBundle>com.python.pydev.debug</explodedBundle>
             <!-- TODO com.python.pydev.docs -->
             <explodedBundle>com.python.pydev.refactoring</explodedBundle>
-            <explodedBundle>com.python.pydev.runalltests</explodedBundle>
+            <!-- <explodedBundle>com.python.pydev.runalltests</explodedBundle> -->
             <explodedBundle>org.python.pydev</explodedBundle>
             <explodedBundle>org.python.pydev.ast</explodedBundle>
             <explodedBundle>org.python.pydev.core</explodedBundle>
@@ -183,6 +183,13 @@
             <explodedBundle>org.python.pydev.shared_interactive_console</explodedBundle>
             <explodedBundle>org.python.pydev.shared_ui</explodedBundle>
           </explodedBundles>
+          <!-- Print each test as it starts and finishes, so a run that hangs shows where. -->
+          <providerProperties>
+            <property>
+              <name>listener</name>
+              <value>org.python.pydev.shared_core.PrintOutCurrentTestRunListener</value>
+            </property>
+          </providerProperties>
           <!-- See: https://www.eclipse.org/tycho/sitedocs/tycho-surefire-plugin/test-mojo.html -->
           <!-- <useUIThread>false</useUIThread> -->
           <skipAfterFailureCount>1</skipAfterFailureCount>

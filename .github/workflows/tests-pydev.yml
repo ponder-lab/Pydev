@@ -38,8 +38,11 @@ jobs:
             sudo python2 /tmp/get-pip.py
 
       - name: Set up Python 2.7 deps
+        # Cython is pinned to 0.29 in both interpreters: PyDev's Cython AST
+        # generation (cython_json.py, GenCythonAstImpl) and GenCythonAstTest's
+        # expected trees target Cython 0.29, and Cython 3 changes the AST.
         run: |
-            sudo python2 -m pip install numpy django cython zope.interface
+            sudo python2 -m pip install numpy django cython==0.29.37 zope.interface
             
       - name: Set up Python 3.8
         uses: actions/setup-python@v5
@@ -48,7 +51,7 @@ jobs:
           
       - name: Set up Python 3.8 deps
         run: |
-            python3 -m pip install PyQt5 cython
+            python3 -m pip install PyQt5 cython==0.29.37
             
       - name: Set up Jython
         run: |
@@ -114,7 +117,7 @@ jobs:
 
         
       - name: Build with Maven
-        run: mvn install -DskipTests=true
+        run: ./mvnw install -DskipTests=true
 
       - name: Add tests to plugin
         run: python3 builders/org.python.pydev.build/add_tests_to_plugins.py
@@ -124,4 +127,25 @@ jobs:
             # We set the PYDEV_TEST_PLATFORM to control which TestDependent we use (i.e. TestDependent.github.properties)
             PYDEV_TEST_PLATFORM: github
             DISPLAY: ":99.0"
-        run: mvn integration-test --batch-mode
+        run: ./mvnw integration-test --batch-mode
+
+      - name: Upload the test runtimes' logs
+        # The platform log of each module's test runtime holds what surefire's
+        # output doesn't, such as the errors of a runtime killed at its timeout.
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-runtime-logs
+          path: plugins/*/target/work/data/.metadata/.log
+          if-no-files-found: ignore
+          include-hidden-files: true
+
+      - name: Upload the test reports
+        # Keep each test class's results and failures, with their output, as
+        # files rather than only in the job log.
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: plugins/*/target/surefire-reports/
+          if-no-files-found: ignore

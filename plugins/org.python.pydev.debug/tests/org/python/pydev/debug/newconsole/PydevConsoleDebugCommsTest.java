@@ -104,6 +104,7 @@ public class PydevConsoleDebugCommsTest extends TestCase {
 
         debugTarget = new DummyDebugTarget();
         debugTarget.startTransmission(accept);
+        debugTarget.initialize(false);
     }
 
     @Override
@@ -233,11 +234,11 @@ public class PydevConsoleDebugCommsTest extends TestCase {
      */
     public void testContinuation() throws Exception {
 
-        InterpreterResponse response = execInterpreter("from os import \\\n");
+        InterpreterResponse response = execInterpreter("from os import \\");
         assertTrue(response.more);
-        response = execInterpreter("  path,\\\n");
+        response = execInterpreter("  path,\\");
         assertTrue(response.more);
-        response = execInterpreter("  remove\n");
+        response = execInterpreter("  remove");
         assertTrue(response.more);
         response = execInterpreter("\n");
     }

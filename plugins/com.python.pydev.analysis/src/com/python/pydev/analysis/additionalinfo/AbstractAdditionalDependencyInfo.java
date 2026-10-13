@@ -407,6 +407,13 @@ public abstract class AbstractAdditionalDependencyInfo extends AbstractAdditiona
     }
 
     /**
+     * Public just for tests.
+     */
+    public boolean loadInternal() {
+        return load();
+    }
+
+    /**
      * actually does the load
      * @return true if it was successfully loaded and false otherwise
      */
