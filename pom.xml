@@ -185,7 +185,6 @@
           </explodedBundles>
           <!-- See: https://www.eclipse.org/tycho/sitedocs/tycho-surefire-plugin/test-mojo.html -->
           <!-- <useUIThread>false</useUIThread> -->
-          <skipAfterFailureCount>1</skipAfterFailureCount>
           <!-- <testClass>org.python.pydev.ast.codecompletion.PythonCompletionWithBuiltinsTest</testClass> -->
           <excludes>
             <!-- IronPython (.NET-only) and Jython cannot be provisioned/exercised
