@@ -104,6 +104,7 @@ public class PydevConsoleDebugCommsTest extends TestCase {
 
         debugTarget = new DummyDebugTarget();
         debugTarget.startTransmission(accept);
+        debugTarget.initialize(false);
     }
 
     @Override
