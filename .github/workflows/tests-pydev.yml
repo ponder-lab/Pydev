@@ -128,3 +128,14 @@ jobs:
             PYDEV_TEST_PLATFORM: github
             DISPLAY: ":99.0"
         run: ./mvnw integration-test --batch-mode --fail-at-end -Dmaven.test.failure.ignore=true
+
+      - name: Upload the test runtimes' logs
+        # The platform log of each module's test runtime holds what surefire's
+        # output doesn't, such as the errors of a runtime killed at its timeout.
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-runtime-logs
+          path: plugins/*/target/work/data/.metadata/.log
+          if-no-files-found: ignore
+          include-hidden-files: true
