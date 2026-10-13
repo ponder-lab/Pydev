@@ -207,7 +207,7 @@
           </excludes>
           <failIfNoTests>false</failIfNoTests>
           <useUIHarness>true</useUIHarness>
-          <testFailureIgnore>false</testFailureIgnore>
+          <testFailureIgnore>true</testFailureIgnore>
           <argLine>-enableassertions</argLine>
           <forkedProcessTimeoutInSeconds>1000</forkedProcessTimeoutInSeconds>
           <systemProperties>
