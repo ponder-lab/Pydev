@@ -139,3 +139,13 @@ jobs:
           path: plugins/*/target/work/data/.metadata/.log
           if-no-files-found: ignore
           include-hidden-files: true
+
+      - name: Upload the test reports
+        # Keep each test class's results and failures, with their output, as
+        # files rather than only in the job log.
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: plugins/*/target/surefire-reports/
+          if-no-files-found: ignore
