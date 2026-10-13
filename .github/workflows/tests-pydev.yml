@@ -38,8 +38,11 @@ jobs:
             sudo python2 /tmp/get-pip.py
 
       - name: Set up Python 2.7 deps
+        # Cython is pinned to 0.29 in both interpreters: PyDev's Cython AST
+        # generation (cython_json.py, GenCythonAstImpl) and GenCythonAstTest's
+        # expected trees target Cython 0.29, and Cython 3 changes the AST.
         run: |
-            sudo python2 -m pip install numpy django cython zope.interface
+            sudo python2 -m pip install numpy django cython==0.29.37 zope.interface
             
       - name: Set up Python 3.8
         uses: actions/setup-python@v5
@@ -48,7 +51,7 @@ jobs:
           
       - name: Set up Python 3.8 deps
         run: |
-            python3 -m pip install PyQt5 cython
+            python3 -m pip install PyQt5 cython==0.29.37
             
       - name: Set up Jython
         run: |
