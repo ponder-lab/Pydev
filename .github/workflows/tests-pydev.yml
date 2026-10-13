@@ -127,7 +127,7 @@ jobs:
             # We set the PYDEV_TEST_PLATFORM to control which TestDependent we use (i.e. TestDependent.github.properties)
             PYDEV_TEST_PLATFORM: github
             DISPLAY: ":99.0"
-        run: ./mvnw integration-test --batch-mode --fail-at-end -Dmaven.test.failure.ignore=true
+        run: ./mvnw integration-test --batch-mode
 
       - name: Upload the test runtimes' logs
         # The platform log of each module's test runtime holds what surefire's
