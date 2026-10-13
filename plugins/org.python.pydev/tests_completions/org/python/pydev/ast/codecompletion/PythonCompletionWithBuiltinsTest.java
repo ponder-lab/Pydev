@@ -244,6 +244,12 @@ public class PythonCompletionWithBuiltinsTest extends CodeCompletionTestsBase {
     }
 
     public void testNumpy() throws BadLocationException, IOException, Exception {
+        if (SharedCorePlugin.skipKnownFailures()) {
+            // The expected members are those of a compiled numpy.core.umath. Since numpy 1.16 (1.16.6 is the last release for
+            // Python 2.7), umath is a Python shim over the compiled _multiarray_umath, and no completions come back for `less.`.
+            // Upstream's CI leaves PYTHON_NUMPY_PACKAGES unset, so it never runs this test either.
+            return;
+        }
         if (TestDependent.PYTHON2_NUMPY_PACKAGES != null) {
             String s = "" +
                     "from numpy import less\n" +
