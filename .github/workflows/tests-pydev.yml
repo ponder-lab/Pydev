@@ -114,7 +114,7 @@ jobs:
 
         
       - name: Build with Maven
-        run: mvn install -DskipTests=true
+        run: ./mvnw install -DskipTests=true
 
       - name: Add tests to plugin
         run: python3 builders/org.python.pydev.build/add_tests_to_plugins.py
@@ -124,4 +124,4 @@ jobs:
             # We set the PYDEV_TEST_PLATFORM to control which TestDependent we use (i.e. TestDependent.github.properties)
             PYDEV_TEST_PLATFORM: github
             DISPLAY: ":99.0"
-        run: mvn integration-test --batch-mode
+        run: ./mvnw integration-test --batch-mode
