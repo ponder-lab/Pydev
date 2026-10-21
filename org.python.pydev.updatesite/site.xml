@@ -3,7 +3,7 @@
    <description name="PyDev Update Site" url="https://raw.githubusercontent.com/ponder-lab/Pydev/pydev_9_3/org.python.pydev.updatesite">
       PyDev Updatesite
    </description>
-   <feature url="features/org.python.pydev.feature_9.3.4.202610131319.jar" id="org.python.pydev.feature" version="9.3.4.202610131319">
+   <feature url="features/org.python.pydev.feature_9.3.5.202610211858.jar" id="org.python.pydev.feature" version="9.3.5.202610211858">
       <category name="org.python.pydev.updatesite"/>
    </feature>
    <category-def name="org.python.pydev.updatesite" label="Pydev"/>
