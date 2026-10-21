@@ -36,6 +36,7 @@ import org.python.pydev.core.IInterpreterManagerListener;
 import org.python.pydev.core.log.Log;
 import org.python.pydev.core.preferences.InterpreterGeneralPreferences;
 import org.python.pydev.core.preferences.PydevPrefs;
+import org.python.pydev.shared_core.SharedCorePlugin;
 import org.python.pydev.shared_core.io.FileUtils;
 import org.python.pydev.shared_core.path_watch.EventsStackerRunnable;
 import org.python.pydev.shared_core.path_watch.IFilesystemChangesListener;
@@ -164,13 +165,22 @@ public class SyncSystemModulesManagerScheduler implements IInterpreterManagerLis
      *
      * A synchronization whose PYTHONPATH changes are waiting on the user's choice in a dialog isn't waited for.
      *
+     * Must not be called from the UI thread: applying the PYTHONPATH changes may need the UI thread, so waiting on it
+     * there could deadlock. A call from the UI thread is refused (this is checked once the PyDev UI plug-in has
+     * started).
+     *
      * Usage: <code>DefaultSyncSystemModulesManagerScheduler.get().waitForSynchronization(monitor)</code>.
      *
      * @param monitor used to cancel the wait (may be null).
      * @throws InterruptedException if the thread is interrupted while waiting.
      * @throws OperationCanceledException if the monitor is canceled while waiting.
+     * @throws IllegalStateException if called from the UI thread.
      */
     public void waitForSynchronization(IProgressMonitor monitor) throws InterruptedException {
+        if (SharedCorePlugin.isUiThread()) {
+            throw new IllegalStateException(
+                    "Waiting for the interpreter synchronization from the UI thread could deadlock.");
+        }
         if (monitor == null) {
             monitor = new NullProgressMonitor();
         }

@@ -110,26 +110,42 @@ public class PythonShellTest extends CodeCompletionTestsBase {
 
     /**
      * A module whose import aborts the interpreter kills the server while the request is processed: it's answered as
-     * having no completions, counted as a failure, and not requested again (which would kill the restarted server),
-     * while the restarted server answers the next requests.
+     * having no completions and counted as a failure, while the restarted server answers the next requests. It's not
+     * requested again under the same PYTHONPATH (which would kill the restarted server), but each answer it then gets
+     * without being sent is still counted. Under another PYTHONPATH, it's sent again.
      */
     public void testImportThatKillsTheServer() throws Exception {
         File dir = Files.createTempDirectory("pydev_shell_test").toFile();
         try {
-            FileUtils.writeStrToFile("import os\nos.abort()\n", new File(dir, "pydev_shell_test_aborts.py"));
+            //Each import attempt leaves a mark, so that the test can tell whether the request was sent.
+            File marks = new File(dir, "marks.txt");
+            FileUtils.writeStrToFile("import os\n"
+                    + "with open(os.path.join(os.path.dirname(__file__), 'marks.txt'), 'a') as f:\n"
+                    + "    f.write('x')\n"
+                    + "os.abort()\n", new File(dir, "pydev_shell_test_aborts.py"));
             List<String> pythonpath = new ArrayList<>(getPythonpath());
             pythonpath.add(dir.getAbsolutePath());
 
             long failures = AbstractShell.getFailureCount();
             assertEquals(0, shell.getImportCompletions("pydev_shell_test_aborts", pythonpath).o2.size());
+            assertEquals("x", FileUtils.getFileContents(marks));
             assertEquals(failures + 1, AbstractShell.getFailureCount());
 
             assertIsIn(shell.getImportCompletions("math", pythonpath).o2, "sqrt");
 
-            //Sending it again would kill the server again (and count another failure).
+            //Answered without being sent, but still counted.
             assertEquals(0, shell.getImportCompletions("pydev_shell_test_aborts", pythonpath).o2.size());
+            assertEquals("x", FileUtils.getFileContents(marks));
+            assertEquals(failures + 2, AbstractShell.getFailureCount());
             assertIsIn(shell.getImportCompletions("math", pythonpath).o2, "sqrt");
-            assertEquals(failures + 1, AbstractShell.getFailureCount());
+
+            //Another PYTHONPATH may resolve the module differently, so, it's sent again.
+            List<String> otherPythonpath = new ArrayList<>(pythonpath);
+            otherPythonpath.add(new File(dir, "other").getAbsolutePath());
+            assertEquals(0, shell.getImportCompletions("pydev_shell_test_aborts", otherPythonpath).o2.size());
+            assertEquals("xx", FileUtils.getFileContents(marks));
+            assertEquals(failures + 3, AbstractShell.getFailureCount());
+            assertIsIn(shell.getImportCompletions("math", otherPythonpath).o2, "sqrt");
         } finally {
             FileUtils.deleteDirectoryTree(dir);
         }

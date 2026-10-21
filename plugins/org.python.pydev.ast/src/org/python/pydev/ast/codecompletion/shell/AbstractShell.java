@@ -118,8 +118,8 @@ public abstract class AbstractShell {
     private static final AtomicLong failureCount = new AtomicLong();
 
     /**
-     * Requests (keyed by interpreter and request) whose processing made the server exit. They're not sent again in
-     * this session, as resending one would just kill the restarted server.
+     * Requests (keyed by interpreter, state, such as the PYTHONPATH, and request) whose processing made the server
+     * exit. They're not sent again in this session, as resending one would just kill the restarted server.
      */
     private static final Set<String> requestsThatKilledServer = ConcurrentHashMap.newKeySet();
 
@@ -131,7 +131,8 @@ public abstract class AbstractShell {
      * processing made the server exit (e.g.: importing a compiled module that aborts the interpreter), a reply that
      * didn't arrive in full, a server found dead before a request could be sent, or a request that couldn't be
      * delivered. It's counted even if resending the request to a restarted server then succeeded. A request that's
-     * skipped because it killed the server earlier in the session isn't counted again.
+     * skipped, without being sent, because it killed the server earlier in the session (with the same interpreter and
+     * PYTHONPATH) is counted again each time, as it's answered as having no results.
      *
      * Clients that need to know whether any answer they (or PyDev's background jobs, such as the interpreter
      * indexing) got from the shells may be incomplete can read the count before and after an operation and treat a
@@ -767,8 +768,9 @@ public abstract class AbstractShell {
      * If the request was delivered but the reply didn't arrive in full, the request isn't resent: the server is
      * restarted for the next requests and null is returned. If, moreover, the server process exited while processing
      * the request, the request is taken to have killed it (e.g.: importing a compiled module that aborts the
-     * interpreter): it's logged once as a warning and, for the rest of the session, answered with null without being
-     * sent, as resending it would just kill the restarted server.
+     * interpreter): it's logged once as a warning and, for the rest of the session (with the same interpreter and
+     * state, see {@link #getStateRestoreMessage()}), answered with null without being sent, as resending it would
+     * just kill the restarted server.
      *
      * Every failure is counted (see {@link #getFailureCount()}).
      *
@@ -781,7 +783,8 @@ public abstract class AbstractShell {
             synchronized (ioLock) {
                 String requestKey = getRequestKey(request);
                 if (requestsThatKilledServer.contains(requestKey)) {
-                    //Already logged when it killed the server.
+                    //Logged when it killed the server. Counted, as its answer is missing.
+                    failureCount.incrementAndGet();
                     return null;
                 }
 
@@ -878,7 +881,8 @@ public abstract class AbstractShell {
 
     private String getRequestKey(String request) {
         IInterpreterInfo interpreter = shellInterpreter;
-        return (interpreter != null ? interpreter.getExecutableOrJar() : "") + "\n" + request;
+        return StringUtils.join("\n", interpreter != null ? interpreter.getExecutableOrJar() : "",
+                String.valueOf(getStateRestoreMessage()), request);
     }
 
     private void recordFailure(String message, Throwable e) {
