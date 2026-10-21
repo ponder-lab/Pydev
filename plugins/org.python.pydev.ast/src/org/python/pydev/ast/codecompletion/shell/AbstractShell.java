@@ -168,18 +168,34 @@ public abstract class AbstractShell {
      * A request gets no answer when the server didn't answer it in full (e.g.: it timed out, or the server exited
      * while processing it), when it's skipped because it killed the server earlier in the session (with the same
      * interpreter and PYTHONPATH), when it couldn't be delivered after resending it, when the server couldn't be
-     * restarted, or when sending it failed with an exception. Unlike with {@link #getFailureCount()}, a request that
-     * was answered after being resent to a restarted server isn't counted, and neither are the requests of other
-     * threads (such as PyDev's background jobs).
+     * restarted, when there's no shell to send it to, or when sending it failed with an exception. Unlike with
+     * {@link #getFailureCount()}, a request that was answered after being resent to a restarted server isn't counted,
+     * and neither are the requests of other threads (such as PyDev's background jobs).
+     *
+     * Compiled modules don't keep what they built from a lost answer (their tokens, the tokens of their inner
+     * members, and their definitions), regardless of the thread that lost it: the next access, on any thread, asks the
+     * server again, and so it's counted for that thread if it's lost again. After it's lost twice, the server isn't
+     * asked again, and each later access is counted as a lost answer for the thread making it.
      *
      * Clients that need to know whether the answers to the requests made on their behalf may be incomplete can read
      * the count before and after an operation that runs on the calling thread and treat a change as a failure of that
-     * operation. Note that answers PyDev got (and cached) before the operation, or on other threads, aren't covered.
+     * operation. This covers the lookups that go to the shells or to compiled modules on that thread. It doesn't cover
+     * the global tokens index that the interpreter synchronization builds from compiled modules on another thread
+     * (used, e.g., to find definitions in the additional info), nor answers PyDev got on threads that the operation
+     * delegates to.
      *
      * @return the number of requests that the calling thread made and that got no answer.
      */
     public static long getLostAnswerCount() {
         return lostAnswerCount.get()[0];
+    }
+
+    /**
+     * Counts a lost answer for the calling thread (see {@link #getLostAnswerCount()}). For callers that answer from
+     * what they built from an answer that was lost (on any thread), or that couldn't ask the server.
+     */
+    public static void countLostAnswer() {
+        lostAnswerCount.get()[0]++;
     }
 
     private static void dbg(String string, int priority) {
@@ -299,7 +315,14 @@ public abstract class AbstractShell {
 
     public static AbstractShell getServerShell(IPythonNature nature, ShellId id) throws IOException,
             JDTNotAvailableException, CoreException, MisconfigurationException, PythonNatureWithoutProjectException {
-        return ShellsContainer.getServerShell(nature, id);
+        try {
+            return ShellsContainer.getServerShell(nature, id);
+        } catch (Exception | Error e) {
+            //The request the shell was gotten for won't be answered.
+            failureCount.incrementAndGet();
+            countLostAnswer();
+            throw e;
+        }
     }
 
     /**
@@ -825,7 +848,7 @@ public abstract class AbstractShell {
             return reply;
         } finally {
             if (reply == null) {
-                lostAnswerCount.get()[0]++;
+                countLostAnswer();
             }
             if (process != null) {
                 //Clear the contents from the output from time to time
@@ -927,6 +950,10 @@ public abstract class AbstractShell {
                     restartShell();
                     return null;
                 }
+            }
+            if (restart) {
+                //e.g.: it died processing the last resend, and it may still be dumping core (i.e.: alive).
+                restartShell();
             }
             Log.log(IStatus.ERROR,
                     "Giving up on a request after resending it " + MAX_RESENDS + " times. Message: " + request,

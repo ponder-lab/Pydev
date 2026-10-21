@@ -19,6 +19,7 @@ import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
 import org.python.pydev.ast.codecompletion.revisited.CodeCompletionTestsBase;
+import org.python.pydev.ast.codecompletion.revisited.modules.CompiledModule;
 import org.python.pydev.core.IPythonNature;
 import org.python.pydev.core.MisconfigurationException;
 import org.python.pydev.core.PythonNatureWithoutProjectException;
@@ -54,13 +55,17 @@ public class PythonShellTest extends CodeCompletionTestsBase {
     @Override
     public void setUp() throws Exception {
         super.setUp();
+        restoreTestPythonPath(false);
+        this.shell = startShell();
+    }
+
+    private void restoreTestPythonPath(boolean force) {
         if (TestDependent.PYTHON2_OPENGL_PACKAGES == null) {
-            restorePythonPathWithSitePackages(false);
+            restorePythonPathWithSitePackages(force);
         } else {
-            restorePythonPathWithCustomSystemPath(false, TestDependent.getCompletePythonLib(true, isPython3Test()) + "|"
+            restorePythonPathWithCustomSystemPath(force, TestDependent.getCompletePythonLib(true, isPython3Test()) + "|"
                     + TestDependent.PYTHON2_OPENGL_PACKAGES);
         }
-        this.shell = startShell();
     }
 
     /**
@@ -219,6 +224,65 @@ public class PythonShellTest extends CodeCompletionTestsBase {
             assertIsIn(shell.getImportCompletions("math", pythonpath).o2, "sqrt");
         } finally {
             FileUtils.deleteDirectoryTree(dir);
+        }
+    }
+
+    /**
+     * A compiled module doesn't keep tokens built from a lost answer: reading it asks the server again, on the reading
+     * thread, which counts the answer as lost if it is again. After it's lost twice, the server isn't asked again, but
+     * each read is still counted as a lost answer for the reading thread.
+     */
+    public void testCompiledModuleDoesNotKeepLostAnswer() throws Exception {
+        File dir = Files.createTempDirectory("pydev_shell_test").toFile();
+        try {
+            File marks = new File(dir, "marks.txt");
+            FileUtils.writeStrToFile("import os\n"
+                    + "with open(os.path.join(os.path.dirname(__file__), 'marks.txt'), 'a') as f:\n"
+                    + "    f.write('x')\n"
+                    + "os.abort()\n", new File(dir, "pydev_shell_test_compiled_aborts.py"));
+            restorePythonPathWithCustomSystemPath(true,
+                    TestDependent.getCompletePythonLib(true, isPython3Test()) + "|" + dir.getAbsolutePath());
+            AbstractShell.putServerShell(nature, AbstractShell.getShellId(), shell);
+
+            //Created (and its answer lost) on another thread, e.g.: PyDev's interpreter synchronization.
+            CompiledModule[] module = new CompiledModule[1];
+            long[] lostInThread = new long[2];
+            Thread thread = new Thread(() -> {
+                lostInThread[0] = AbstractShell.getLostAnswerCount();
+                module[0] = new CompiledModule("pydev_shell_test_compiled_aborts",
+                        nature.getAstManager().getModulesManager(), nature);
+                lostInThread[1] = AbstractShell.getLostAnswerCount();
+            });
+            thread.start();
+            thread.join();
+            assertEquals(lostInThread[0] + 1, lostInThread[1]);
+            assertEquals("xx", FileUtils.getFileContents(marks));
+
+            //Reading it asks the server again (which skips the request that killed it), and counts it as lost.
+            long lost = AbstractShell.getLostAnswerCount();
+            assertEquals(0, module[0].getGlobalTokens().size());
+            assertEquals(lost + 1, AbstractShell.getLostAnswerCount());
+
+            //Given up on, but still counted.
+            assertFalse(module[0].isInDirectGlobalTokens("x", null));
+            assertEquals(lost + 2, AbstractShell.getLostAnswerCount());
+            assertEquals("xx", FileUtils.getFileContents(marks));
+        } finally {
+            AbstractShell.putServerShell(nature, AbstractShell.getShellId(), null);
+            restoreTestPythonPath(true);
+            FileUtils.deleteDirectoryTree(dir);
+        }
+    }
+
+    /**
+     * A running process isn't taken to be dumping core.
+     */
+    public void testIsDumpingCoreOnLiveProcess() throws Exception {
+        Process process = new ProcessBuilder("sleep", "30").start();
+        try {
+            assertFalse(new ProcessCreationInfo(new String[] { "sleep", "30" }, null, null, process).isDumpingCore());
+        } finally {
+            process.destroyForcibly();
         }
     }
 
