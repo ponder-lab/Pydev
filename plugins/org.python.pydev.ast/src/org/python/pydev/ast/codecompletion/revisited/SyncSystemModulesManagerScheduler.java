@@ -23,6 +23,7 @@ import java.util.Set;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
@@ -52,6 +53,11 @@ public class SyncSystemModulesManagerScheduler implements IInterpreterManagerLis
     public SyncSystemModulesManagerScheduler() {
         pathWatch.setDirectoryFileFilter(filter, dirFilter);
     }
+
+    /**
+     * The family of the jobs that synchronize the interpreters' information (see {@link #waitForSynchronization}).
+     */
+    /*default*/static final Object SYNC_JOB_FAMILY = new Object();
 
     private final SynchJob job = new SynchJob("Sync System PYTHONPATH");
 
@@ -147,6 +153,46 @@ public class SyncSystemModulesManagerScheduler implements IInterpreterManagerLis
     }
 
     /**
+     * Blocks until no synchronization of the interpreters' information (which includes indexing the modules of the
+     * interpreters, such as their compiled modules) is pending or running. A synchronization that's scheduled to
+     * start after a delay (e.g.: shortly after startup, or after an interpreter is configured) is started right away
+     * instead of after its delay.
+     *
+     * Clients that rely on the interpreters' information (e.g.: to look up definitions) can call this first, so that
+     * their lookups don't race the indexing or read a partial index. It should be called after the PyDev plug-in has
+     * started (which schedules the initial synchronization) and after any interpreter is configured.
+     *
+     * A synchronization whose PYTHONPATH changes are waiting on the user's choice in a dialog isn't waited for.
+     *
+     * Usage: <code>DefaultSyncSystemModulesManagerScheduler.get().waitForSynchronization(monitor)</code>.
+     *
+     * @param monitor used to cancel the wait (may be null).
+     * @throws InterruptedException if the thread is interrupted while waiting.
+     * @throws OperationCanceledException if the monitor is canceled while waiting.
+     */
+    public void waitForSynchronization(IProgressMonitor monitor) throws InterruptedException {
+        if (monitor == null) {
+            monitor = new NullProgressMonitor();
+        }
+        while (!job.fSynchManager.getSelectingElementsInDialog()) {
+            if (monitor.isCanceled()) {
+                throw new OperationCanceledException();
+            }
+            if (job.startPendingScheduleNow()) {
+                //The schedule thread polls for its start time, so, give it some time to schedule the job.
+                Thread.sleep(50);
+                continue;
+            }
+            //No schedule is pending, so, the job is either already scheduled (and joining waits for it) or not needed.
+            Job.getJobManager().join(SYNC_JOB_FAMILY, monitor);
+            if (!job.isSchedulePending()) {
+                //A run may have scheduled another one (in which case we loop to wait for it too).
+                return;
+            }
+        }
+    }
+
+    /**
      * Stops the synchronization.
      */
     public void stop() {
@@ -186,6 +232,11 @@ public class SyncSystemModulesManagerScheduler implements IInterpreterManagerLis
         private SynchJob(String name) {
             super(name);
             setPriority(Job.BUILD);
+        }
+
+        @Override
+        public boolean belongsTo(Object family) {
+            return family == SYNC_JOB_FAMILY;
         }
 
         private final SyncSystemModulesManager fSynchManager = new SyncSystemModulesManager();
@@ -301,6 +352,30 @@ public class SyncSystemModulesManagerScheduler implements IInterpreterManagerLis
         private Thread scheduleThread;
         private volatile long runAt;
         private final Object scheduleThreadLock = new Object();
+
+        /**
+         * @return whether scheduleLater was called and the job wasn't scheduled yet.
+         */
+        private boolean isSchedulePending() {
+            synchronized (scheduleThreadLock) {
+                return scheduleThread != null;
+            }
+        }
+
+        /**
+         * If a schedule is pending (see {@link #isSchedulePending()}), makes the job be scheduled now.
+         *
+         * @return whether a schedule was pending.
+         */
+        private boolean startPendingScheduleNow() {
+            synchronized (scheduleThreadLock) {
+                if (scheduleThread == null) {
+                    return false;
+                }
+                runAt = System.currentTimeMillis();
+                return true;
+            }
+        }
 
         /**
          * Differently from the regular schedule, this will create a thread which will
