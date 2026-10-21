@@ -16,7 +16,6 @@ import org.eclipse.core.runtime.Plugin;
 import org.eclipse.core.runtime.Status;
 import org.osgi.framework.BundleContext;
 import org.python.pydev.shared_core.callbacks.ICallback;
-import org.python.pydev.shared_core.callbacks.ICallback0;
 import org.python.pydev.shared_core.image.IImageCache;
 import org.python.pydev.shared_core.io.FileUtils;
 import org.python.pydev.shared_core.log.Log;
@@ -185,18 +184,6 @@ public class SharedCorePlugin extends Plugin {
         runnable.run();
         return null;
     };
-
-    /**
-     * Set by the UI plug-in when it starts. Until then (and when running without a UI), there's no UI thread.
-     */
-    public static ICallback0<Boolean> onIsUiThread = () -> false;
-
-    /**
-     * @return whether the current thread is the UI thread (false if the UI plug-in isn't started).
-     */
-    public static boolean isUiThread() {
-        return onIsUiThread.call();
-    }
 
     public static void asyncRunInUiThread(Runnable runnable) {
         onAsyncRunInUiThread.call(runnable);

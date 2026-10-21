@@ -80,8 +80,6 @@ public class SharedUiPlugin extends AbstractUIPlugin {
             RunInUiThread.sync(runnable);
             return null;
         };
-
-        SharedCorePlugin.onIsUiThread = () -> Display.getCurrent() != null;
     }
 
     /**

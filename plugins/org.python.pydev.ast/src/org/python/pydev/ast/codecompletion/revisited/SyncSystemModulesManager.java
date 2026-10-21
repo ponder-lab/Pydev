@@ -115,11 +115,6 @@ public class SyncSystemModulesManager {
         }
 
         @Override
-        public boolean belongsTo(Object family) {
-            return family == SyncSystemModulesManagerScheduler.SYNC_JOB_FAMILY;
-        }
-
-        @Override
         protected IStatus run(IProgressMonitor monitor) {
             ThreadPriorityHelper priorityHelper = new ThreadPriorityHelper(this.getThread());
             priorityHelper.setMinPriority();
