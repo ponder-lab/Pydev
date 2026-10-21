@@ -109,10 +109,11 @@ public class PythonShellTest extends CodeCompletionTestsBase {
     }
 
     /**
-     * A module whose import aborts the interpreter kills the server while the request is processed: it's answered as
-     * having no completions and counted as a failure, while the restarted server answers the next requests. It's not
-     * requested again under the same PYTHONPATH (which would kill the restarted server), but each answer it then gets
-     * without being sent is still counted. Under another PYTHONPATH, it's sent again.
+     * A module whose import aborts the interpreter kills the server while the request is processed. The request is
+     * resent once to the restarted server, which it kills again: it's answered as having no completions, and the
+     * answer is counted as lost, while the restarted server answers the next requests. It's not requested again under
+     * the same PYTHONPATH (which would kill the restarted server), but each answer it then gets without being sent is
+     * still counted as lost. Under another PYTHONPATH, it's sent again.
      */
     public void testImportThatKillsTheServer() throws Exception {
         File dir = Files.createTempDirectory("pydev_shell_test").toFile();
@@ -126,33 +127,104 @@ public class PythonShellTest extends CodeCompletionTestsBase {
             List<String> pythonpath = new ArrayList<>(getPythonpath());
             pythonpath.add(dir.getAbsolutePath());
 
+            long lost = AbstractShell.getLostAnswerCount();
             long failures = AbstractShell.getFailureCount();
             assertEquals(0, shell.getImportCompletions("pydev_shell_test_aborts", pythonpath).o2.size());
-            assertEquals("x", FileUtils.getFileContents(marks));
-            assertEquals(failures + 1, AbstractShell.getFailureCount());
+            assertEquals("xx", FileUtils.getFileContents(marks));
+            assertEquals(lost + 1, AbstractShell.getLostAnswerCount());
+            assertTrue(AbstractShell.getFailureCount() >= failures + 2);
 
             assertIsIn(shell.getImportCompletions("math", pythonpath).o2, "sqrt");
+            assertEquals(lost + 1, AbstractShell.getLostAnswerCount());
 
             //Answered without being sent, but still counted.
             assertEquals(0, shell.getImportCompletions("pydev_shell_test_aborts", pythonpath).o2.size());
-            assertEquals("x", FileUtils.getFileContents(marks));
-            assertEquals(failures + 2, AbstractShell.getFailureCount());
+            assertEquals("xx", FileUtils.getFileContents(marks));
+            assertEquals(lost + 2, AbstractShell.getLostAnswerCount());
             assertIsIn(shell.getImportCompletions("math", pythonpath).o2, "sqrt");
 
             //Another PYTHONPATH may resolve the module differently, so, it's sent again.
             List<String> otherPythonpath = new ArrayList<>(pythonpath);
             otherPythonpath.add(new File(dir, "other").getAbsolutePath());
             assertEquals(0, shell.getImportCompletions("pydev_shell_test_aborts", otherPythonpath).o2.size());
-            assertEquals("xx", FileUtils.getFileContents(marks));
-            assertEquals(failures + 3, AbstractShell.getFailureCount());
+            assertEquals("xxxx", FileUtils.getFileContents(marks));
+            assertEquals(lost + 3, AbstractShell.getLostAnswerCount());
             assertIsIn(shell.getImportCompletions("math", otherPythonpath).o2, "sqrt");
+            assertEquals(lost + 3, AbstractShell.getLostAnswerCount());
         } finally {
             FileUtils.deleteDirectoryTree(dir);
         }
     }
 
     /**
-     * A server that died between requests is restarted, its PYTHONPATH restored, and the request resent to it.
+     * A server that dies once while processing a request (e.g.: of something other than the request) gets the request
+     * resent after it's restarted, and the answer isn't lost.
+     */
+    public void testRequestIsResentWhenTheServerDiedProcessingItOnce() throws Exception {
+        File dir = Files.createTempDirectory("pydev_shell_test").toFile();
+        try {
+            //Aborts only the first time it's imported.
+            FileUtils.writeStrToFile("import os\n"
+                    + "marks = os.path.join(os.path.dirname(__file__), 'marks.txt')\n"
+                    + "if not os.path.exists(marks):\n"
+                    + "    open(marks, 'w').close()\n"
+                    + "    os.abort()\n"
+                    + "ABORTS_ONCE = 1\n", new File(dir, "pydev_shell_test_aborts_once.py"));
+            List<String> pythonpath = new ArrayList<>(getPythonpath());
+            pythonpath.add(dir.getAbsolutePath());
+
+            long lost = AbstractShell.getLostAnswerCount();
+            long failures = AbstractShell.getFailureCount();
+            assertIsIn(shell.getImportCompletions("pydev_shell_test_aborts_once", pythonpath).o2, "ABORTS_ONCE");
+            assertEquals(lost, AbstractShell.getLostAnswerCount());
+            assertTrue(AbstractShell.getFailureCount() > failures);
+
+            //Not skipped later on.
+            assertIsIn(shell.getImportCompletions("pydev_shell_test_aborts_once", pythonpath).o2, "ABORTS_ONCE");
+            assertEquals(lost, AbstractShell.getLostAnswerCount());
+        } finally {
+            FileUtils.deleteDirectoryTree(dir);
+        }
+    }
+
+    /**
+     * The answers lost by a thread aren't counted for other threads.
+     */
+    public void testLostAnswersAreCountedPerThread() throws Exception {
+        File dir = Files.createTempDirectory("pydev_shell_test").toFile();
+        try {
+            FileUtils.writeStrToFile("import os\nos.abort()\n", new File(dir, "pydev_shell_test_aborts_in_thread.py"));
+            List<String> pythonpath = new ArrayList<>(getPythonpath());
+            pythonpath.add(dir.getAbsolutePath());
+
+            long lost = AbstractShell.getLostAnswerCount();
+            long[] lostInThread = new long[2];
+            Exception[] exception = new Exception[1];
+            Thread thread = new Thread(() -> {
+                try {
+                    lostInThread[0] = AbstractShell.getLostAnswerCount();
+                    shell.getImportCompletions("pydev_shell_test_aborts_in_thread", pythonpath);
+                    lostInThread[1] = AbstractShell.getLostAnswerCount();
+                } catch (Exception e) {
+                    exception[0] = e;
+                }
+            });
+            thread.start();
+            thread.join();
+            if (exception[0] != null) {
+                throw exception[0];
+            }
+            assertEquals(lostInThread[0] + 1, lostInThread[1]);
+            assertEquals(lost, AbstractShell.getLostAnswerCount());
+            assertIsIn(shell.getImportCompletions("math", pythonpath).o2, "sqrt");
+        } finally {
+            FileUtils.deleteDirectoryTree(dir);
+        }
+    }
+
+    /**
+     * A server that died between requests is restarted, its PYTHONPATH restored, and the request resent to it,
+     * without losing its answer.
      */
     public void testRequestIsResentWhenTheServerDiedBeforeIt() throws Exception {
         File dir = Files.createTempDirectory("pydev_shell_test").toFile();
@@ -164,14 +236,15 @@ public class PythonShellTest extends CodeCompletionTestsBase {
             List<String> pythonpath = new ArrayList<>(getPythonpath());
             pythonpath.add(dir.getAbsolutePath());
 
+            long lost = AbstractShell.getLostAnswerCount();
             long failures = AbstractShell.getFailureCount();
             assertIsIn(shell.getImportCompletions("pydev_shell_test_exits_later", pythonpath).o2, "EXITS_LATER");
-            assertEquals(failures, AbstractShell.getFailureCount());
             Thread.sleep(3000);
 
             //Found only if the restarted server got the PYTHONPATH back.
             assertIsIn(shell.getImportCompletions("pydev_shell_test_plain", pythonpath).o2, "PLAIN");
-            assertEquals(failures + 1, AbstractShell.getFailureCount());
+            assertEquals(lost, AbstractShell.getLostAnswerCount());
+            assertTrue(AbstractShell.getFailureCount() > failures);
         } finally {
             FileUtils.deleteDirectoryTree(dir);
         }
