@@ -11,7 +11,10 @@
  */
 package org.python.pydev.ast.codecompletion.shell;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
@@ -21,6 +24,7 @@ import org.python.pydev.core.MisconfigurationException;
 import org.python.pydev.core.PythonNatureWithoutProjectException;
 import org.python.pydev.core.TestDependent;
 import org.python.pydev.shared_core.SharedCorePlugin;
+import org.python.pydev.shared_core.io.FileUtils;
 import org.python.pydev.shared_core.string.StringUtils;
 
 /**
@@ -102,6 +106,59 @@ public class PythonShellTest extends CodeCompletionTestsBase {
         List<String[]> list = shell.getImportCompletions("dfjslkfjds\n\n", getPythonpath()).o2;
         assertEquals(0, list.size());
         //don't show completion errors!
+    }
+
+    /**
+     * A module whose import aborts the interpreter kills the server while the request is processed: it's answered as
+     * having no completions, counted as a failure, and not requested again (which would kill the restarted server),
+     * while the restarted server answers the next requests.
+     */
+    public void testImportThatKillsTheServer() throws Exception {
+        File dir = Files.createTempDirectory("pydev_shell_test").toFile();
+        try {
+            FileUtils.writeStrToFile("import os\nos.abort()\n", new File(dir, "pydev_shell_test_aborts.py"));
+            List<String> pythonpath = new ArrayList<>(getPythonpath());
+            pythonpath.add(dir.getAbsolutePath());
+
+            long failures = AbstractShell.getFailureCount();
+            assertEquals(0, shell.getImportCompletions("pydev_shell_test_aborts", pythonpath).o2.size());
+            assertEquals(failures + 1, AbstractShell.getFailureCount());
+
+            assertIsIn(shell.getImportCompletions("math", pythonpath).o2, "sqrt");
+
+            //Sending it again would kill the server again (and count another failure).
+            assertEquals(0, shell.getImportCompletions("pydev_shell_test_aborts", pythonpath).o2.size());
+            assertIsIn(shell.getImportCompletions("math", pythonpath).o2, "sqrt");
+            assertEquals(failures + 1, AbstractShell.getFailureCount());
+        } finally {
+            FileUtils.deleteDirectoryTree(dir);
+        }
+    }
+
+    /**
+     * A server that died between requests is restarted, its PYTHONPATH restored, and the request resent to it.
+     */
+    public void testRequestIsResentWhenTheServerDiedBeforeIt() throws Exception {
+        File dir = Files.createTempDirectory("pydev_shell_test").toFile();
+        try {
+            //Exits shortly after being imported, i.e.: not while processing a request.
+            FileUtils.writeStrToFile("import os\nimport threading\nthreading.Timer(0.5, os._exit, (3,)).start()\n"
+                    + "EXITS_LATER = 1\n", new File(dir, "pydev_shell_test_exits_later.py"));
+            FileUtils.writeStrToFile("PLAIN = 1\n", new File(dir, "pydev_shell_test_plain.py"));
+            List<String> pythonpath = new ArrayList<>(getPythonpath());
+            pythonpath.add(dir.getAbsolutePath());
+
+            long failures = AbstractShell.getFailureCount();
+            assertIsIn(shell.getImportCompletions("pydev_shell_test_exits_later", pythonpath).o2, "EXITS_LATER");
+            assertEquals(failures, AbstractShell.getFailureCount());
+            Thread.sleep(3000);
+
+            //Found only if the restarted server got the PYTHONPATH back.
+            assertIsIn(shell.getImportCompletions("pydev_shell_test_plain", pythonpath).o2, "PLAIN");
+            assertEquals(failures + 1, AbstractShell.getFailureCount());
+        } finally {
+            FileUtils.deleteDirectoryTree(dir);
+        }
     }
 
     /**
